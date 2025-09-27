@@ -6,12 +6,13 @@ import { createContext, useContext, useEffect, useState } from "react"
 const PContext = createContext()
 
 
-export const GetResult = ({ description }) => {
+export const GetResult = ({ description, enhancingOptions }) => {
     return new Promise(
         async (resolve, reject) => {
             try {
                 const Res = await API.post("/get-prompt", {
                     clientQuestion: description
+                    , enhancingOptions
                 });
                 console.log(Res);
 
@@ -28,14 +29,34 @@ export const GetResult = ({ description }) => {
 export const PromptContextProvider = ({ children }) => {
     const [value, setValue] = useState("");
     const [result, setresult] = useState("");
-    const [howTouseCout, sethowTouseCout] = useState(0);
+
+    const [selected, setSelected] = useState({
+        output: "",
+        style: "",
+        audience: "",
+        platform: "",
+        length: "",
+        language: ""
+    }); const [howTouseCout, sethowTouseCout] = useState(0);
     const [isLoading, setisLoading] = useState(false);
     const [generatedPromts, setgeneratedPromts] = useState([]);
     const maxLength = 600;
     const minLength = 10;
+    const choosePrompt = (val, resul) => {
+        setValue(val);
+        setresult(resul)
+    }
     const restar = () => {
         setValue("")
         setresult("")
+        setSelected({
+            output: "",
+            style: "",
+            audience: "",
+            platform: "",
+            length: "",
+            language: ""
+        })
     }
     const SetAllowedValue = v => {
         setValue(pv => {
@@ -52,7 +73,7 @@ export const PromptContextProvider = ({ children }) => {
         if (value.length < minLength || value.length > maxLength) return
         setisLoading(true);
 
-        GetResult({ description: value })
+        GetResult({ description: value, enhancingOptions: selected })
             .then(res => {
                 setresult(res);
                 setisLoading(false);
@@ -71,14 +92,14 @@ export const PromptContextProvider = ({ children }) => {
     }
 
     return (
-        <PContext value={{ value, SetAllowedValue, maxLength, isLoading, result, HandelGetResult, minLength, result, generatedPromts, restar, howTouseCout, sethowTouseCout }}>
+        <PContext value={{ value, SetAllowedValue, maxLength, isLoading, result, HandelGetResult, minLength, result, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected,choosePrompt }}>
             {children}
         </PContext>
     )
 }
 
 export const usePrompt = () => {
-    const { value, SetAllowedValue: setValue, maxLength, isLoading, result, HandelGetResult, minLength, generatedPromts, restar, howTouseCout, sethowTouseCout } = useContext(PContext)
+    const { value, SetAllowedValue: setValue, maxLength, isLoading, result, HandelGetResult, minLength, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected ,choosePrompt} = useContext(PContext)
     return {
         value,
         setValue,
@@ -90,6 +111,9 @@ export const usePrompt = () => {
         generatedPromts,
         restar,
         howTouseCout,
-        sethowTouseCout
+        sethowTouseCout,
+        selected,
+        setSelected,
+        choosePrompt
     }
 }

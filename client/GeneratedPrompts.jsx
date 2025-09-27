@@ -6,7 +6,7 @@ import { MoveUp, RotateCcw } from "lucide-react";
 import { RestarValues } from "./GenerationPart";
 
 const GeneratedPrompts = () => {
-    const { generatedPromts, restar } = usePrompt()
+    const { generatedPromts, restar, choosePrompt } = usePrompt()
     return (
         <div className="w-full p-2 max-w-[1000] mt-20 ">
             <div className="w-full justify-between flex items-center">
@@ -26,9 +26,16 @@ const GeneratedPrompts = () => {
                 {
                     generatedPromts?.map(p =>
                         <div
+                        
                             style={{
                                 filter: `drop-shadow(0 0 4px var(--filter-color))`
                             }}
+
+                            onClick={() => {
+                                RestarValues();
+                                choosePrompt(p.description, p.prompt)
+                            }}
+
                             className="w-full  cursor-pointer bg-background opacity-70 hover:opacity-100 duration-200 p-3 rounded-md " key={p.id} >
                             <div className="w-full flex mb-6 justify-end ">
                                 <img src="/image.png" className="w-5 h-5" alt="" />
@@ -44,6 +51,7 @@ const GeneratedPrompts = () => {
                             style={{
                                 filter: `drop-shadow(0 0 4px var(--filter-color))`
                             }}
+                            key={p}
                             className="w-full  cursor-pointer bg-background opacity-70 hover:opacity-100 duration-200 p-3 rounded-md "  >
                             <div className="w-full flex mb-6 justify-end ">
                                 <div className="bg-accent w-[30] h-[20] rounded-sm"></div>

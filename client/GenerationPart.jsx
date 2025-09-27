@@ -11,6 +11,9 @@ import remarkGfm from 'remark-gfm'
 import PreLoadingelem from "./components/PreLoadingelem";
 import { useEffect, useRef } from "react";
 import { HowToUseMove } from "./HowToUse";
+import Link from "next/link";
+import SuggesstionAi from "./SuggesstionAi";
+import ExtraMetadata from "./ExtraMetadata";
 export let RestarValues = () => { }
 const GenerationPart = () => {
     const { value, setValue, sethowTouseCout, maxLength, minLength, isLoading, result, HandelGetResult } = usePrompt();
@@ -48,7 +51,7 @@ const GenerationPart = () => {
                 }}
                 className="flex w-full  bg-sidebar border   mt-8 rounded-xl  md:p-4 flex-col justify-center items-center">
 
-                <div ref={TextareaRef} className="p-1  flex flex-col items-center justify-center relative max-w-[800]  w-full  h-[350]">
+                <div ref={TextareaRef} className="p-1 mb-10  flex flex-col items-center justify-center relative max-w-[800]  w-full  h-[350]">
 
                     <div className="absolute animated-bg  top-0 left-0 bg-black w-full h-full scale-y-[1.01] scale-x-[1.005] rounded-2xl z-[1] "></div>
 
@@ -83,8 +86,9 @@ const GenerationPart = () => {
 
                     </p>
                 </div>
-                <div className="flex mt-18 gap-8 items-center">
-                    <Button onClick={handelDownToLaodingRef} className={"!p-6 tracking-tighter md:w-[340]"}>
+                <ExtraMetadata />
+                <div className="flex mt-5 gap-8 items-center">
+                    <Button disabled={value.length < 10 || isLoading} onClick={handelDownToLaodingRef} className={"!p-6 tracking-tighter md:w-[340]"}>
                         {
                             isLoading
                                 ? <Loader />
@@ -128,7 +132,7 @@ const GenerationPart = () => {
 
             {
                 result && !isLoading &&
-                <div className="mt-5 w-full max-w-[1000]">
+                <div className="mt-5 flex flex-col justify-center min-h-[100vh] w-full max-w-[1000]">
                     <div className="bg-background tracking-tight  ai_response pt-14  relative md:p-8 p-4 border border-foreground/10 rounded-sm">
 
                         <div className="flex z-[3] top-1 rtl:left-0 ltr:right-0 absolute w-full gap-2 justify-end px-2 pt-1 items-center ">
@@ -155,7 +159,11 @@ const GenerationPart = () => {
                     </div>
                 </div>
             }
-        </div>
+
+
+            <SuggesstionAi />
+
+        </div >
     )
 }
 
