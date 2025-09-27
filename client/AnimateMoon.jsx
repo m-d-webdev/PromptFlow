@@ -1,17 +1,6 @@
 "use client";
-
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
 const AnimateMoon = () => {
-    const [height, setheight] = useState(window.innerWidth);
-
-    useEffect(() => {
-        window.onresize = () => {
-            setheight(window.innerWidth)
-        }
-
-    }, []);
-
     return (
         <>
 
@@ -158,25 +147,9 @@ const AnimateMoon = () => {
                 <div className="absolute h-full bg-gradient-to-l via-sidebar/70  from-sidebar to-transparent top-0 w-[100] right-0 "></div>
 
             </div>
-            
+
         </>
     )
 }
 
 export default AnimateMoon
-{/* // <div className="w-full max-h-[70vh] relative overflow-hidden">
-
-        //     <div style={{ height: height }} className="w-full flex flex-col items-center  relative mt-20   rounded-full ">
-        //         <div
-        //             style={{
-        //                 filter: "drop-shadow(0 -10px 20px  #ff4800)"
-        //             }}
-        //             className="w-[80%] h-[80%] bg-[#ff6427] absolute  -top-1  rounded-full">
-        //         </div>
-
-        //         <div className="w-[80%] h-[80%] bg-[#ff8b5d]  absolute  border-t-[3px] border-[#ffc2a3]  rounded-full"></div>
-        //         <div className="w-[80%] h-[80%] bg-sidebar  absolute border-t-2 border-t-[#ff652849] top-[5px] rounded-full"></div>
-        //         <div className="w-full h-full bg-sidebar to-sidebar absolute  top-[25%] "></div>
-        //     </div>
-        //     <div className="w-full h-[200px] bg-gradient-to-b from-transparent  via-sidebar/60 to-sidebar absolute  bottom-0 "></div>
-        // </div > */}
