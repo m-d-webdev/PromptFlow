@@ -14,7 +14,7 @@ export function GoogleOneTap({ onSuccess, onError }) {
         const initializeGoogleOneTap = () => {
             if (window.google) {
                 window.google.accounts.id.initialize({
-                    client_id: "851318449169-6eq54usoebhoq3rmpsrti699goctqevt.apps.googleusercontent.com",
+                    client_id: "1032378498245-rdlsnkb5skmuk018gp0mad9j5go64c59.apps.googleusercontent.com",
                     callback: handleCredentialResponse,
                     auto_select: false,
                     // cancel_on_tap_outside: true,
