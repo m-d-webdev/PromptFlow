@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import { usePathname } from "next/navigation"
+import Login from "./Login"
 
 const MenuHeader = ({ onClose }) => {
     const PageRef = useRef();
@@ -103,6 +104,7 @@ const Header = () => {
                             <MenuHeader onClose={() => setmenuOpen(false)} />
                         }
                     </AnimatePresence>
+                    <Login />
                 </div>
             </div>
         </div>

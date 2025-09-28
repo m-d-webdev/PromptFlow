@@ -2,6 +2,8 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/client/Header";
 import { PromptContextProvider } from "@/context/PromptContext";
+import { UserContext } from "@/context/UserContext";
+import Script from "next/script";
 
 const geistSans = DM_Sans({
   // weight: ["100", "1000", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -17,16 +19,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+      </head>
       <body
         className={`${geistSans.className} antialiased`}
       >
-        <PromptContextProvider>
 
-          <Header />
-          <>
-            {children}
-          </>
-        </PromptContextProvider>
+        <UserContext>
+
+          <PromptContextProvider>
+            <Header />
+            <>
+              {children}
+
+
+            </>
+          </PromptContextProvider>
+        </UserContext>
+
       </body>
     </html>
   );
