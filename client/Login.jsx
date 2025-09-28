@@ -1,5 +1,8 @@
 "use client";
 
+import { LOGINUSER } from "@/lib/auth";
+import { auth } from "@/lib/firebase";
+import { GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import { useEffect } from "react";
 
 
@@ -28,6 +31,10 @@ export function GoogleOneTap({ onSuccess, onError }) {
 
         const handleCredentialResponse = async (response) => {
             try {
+                const credential = GoogleAuthProvider.credential(response.credential);
+                const userCredential = await signInWithCredential(auth, credential);
+                console.log("User info:", userCredential.user);
+                LOGINUSER(userCredential.user);
                 console.log({ response });
             } catch (error) {
                 console.error('One Tap login error:', error)
@@ -46,7 +53,7 @@ export function GoogleOneTap({ onSuccess, onError }) {
         }
     }, [onSuccess, onError])
 
-    return null 
+    return null
 }
 
 export default function Login() {
