@@ -26,7 +26,7 @@ const GeneratedPrompts = () => {
                 {
                     generatedPromts?.map(p =>
                         <div
-                        
+
                             style={{
                                 filter: `drop-shadow(0 0 4px var(--filter-color))`
                             }}
@@ -46,12 +46,12 @@ const GeneratedPrompts = () => {
                     )
                 }
                 {
-                    Array(10 - generatedPromts.length).fill()?.map(p =>
+                    Array(10 - generatedPromts.length).fill()?.map((p, i) =>
                         <div
                             style={{
                                 filter: `drop-shadow(0 0 4px var(--filter-color))`
                             }}
-                            key={p}
+                            key={i}
                             className="w-full  cursor-pointer bg-background opacity-70 hover:opacity-100 duration-200 p-3 rounded-md "  >
                             <div className="w-full flex mb-6 justify-end ">
                                 <div className="bg-accent w-[30] h-[20] rounded-sm"></div>

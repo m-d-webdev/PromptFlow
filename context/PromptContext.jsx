@@ -92,9 +92,9 @@ export const PromptContextProvider = ({ children }) => {
     }
 
     return (
-        <PContext value={{ value, SetAllowedValue, maxLength, isLoading, result, HandelGetResult, minLength, result, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected,choosePrompt }}>
+        <PContext.Provider value={{ value, SetAllowedValue, maxLength, isLoading, result, HandelGetResult, minLength, result, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected,choosePrompt }}>
             {children}
-        </PContext>
+        </PContext.Provider>
     )
 }
 

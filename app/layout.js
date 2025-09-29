@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/client/Header";
 import { PromptContextProvider } from "@/context/PromptContext";
 import { UserContext } from "@/context/UserContext";
-import Script from "next/script";
 
 const geistSans = DM_Sans({
   // weight: ["100", "1000", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -32,6 +31,7 @@ export default function RootLayout({ children }) {
           <PromptContextProvider>
             <Header />
             <>
+              {/* <GoogleOneTap /> */}
               {children}
 
 

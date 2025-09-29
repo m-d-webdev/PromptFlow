@@ -9,7 +9,7 @@ import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import { usePathname } from "next/navigation"
-import Login from "./Login"
+import UserStatus from "./userStatus"
 
 const MenuHeader = ({ onClose }) => {
     const PageRef = useRef();
@@ -78,15 +78,17 @@ const Header = () => {
                 style={{
                     backdropFilter: "blur(100px)"
                 }}
-                className="p-1 hidden  gap-2 bg-background/40 w-full mt-3 md:flex itmes-center justify-between  px-4  rounded-sm border border-foreground/20  max-w-[900]">
+                className="p-1 hidden  gap-2 bg-background/40 w-full mt-3 md:flex relative itmes-center justify-between  px-4  rounded-sm border border-foreground/20  max-w-[900]">
                 <Logo />
                 <Links />
-                <div className="flex gap-2  items-center">
+                <div className="flex gap-2 justify-center  items-center">
 
                     <UpgradeButton />
-                    <LangBtn />
+                    <UserStatus />
+                    {/* <LangBtn /> */}
                 </div>
             </div>
+
             <div
                 style={{
                     backdropFilter: "blur(100px)"
@@ -95,16 +97,17 @@ const Header = () => {
                 <Logo />
                 <div className=" flex items-center justify-center gap-2">
                     <UpgradeButton />
+                    <UserStatus />
                     <Button onClick={() => setmenuOpen(true)} variant={"outline border-none"}>
                         <Menu />
                     </Button>
+
                     <AnimatePresence>
 
                         {menuOpen &&
                             <MenuHeader onClose={() => setmenuOpen(false)} />
                         }
                     </AnimatePresence>
-                    <Login />
                 </div>
             </div>
         </div>

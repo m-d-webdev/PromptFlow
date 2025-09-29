@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 const MaingPart = () => {
     return (
         <div className="w-full flex justify-center items-center  flex-col  min-h-screen  pt-40">
+
             <div className="flex items-center gap-4 mb-20 justify-center flex-col">
                 <div className="flex gap-2 items-center  border p-2 opacity-60  border-chart-1 rounded-md  justify-center">
                     <BrainCircuit className="w-4 h-4 text-chart-1" />
