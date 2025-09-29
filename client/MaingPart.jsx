@@ -17,7 +17,7 @@ const MaingPart = () => {
                 <h1 className="text-5xl font-extrabold max-w-[460] text-center tracking-tighter">
                     Turn Your Ideas Into <span className="text-chart-1">Perfect Prompts</span>
                 </h1>
-                <p className="tracking-tight text-sm opacity-80 max-w-[400] text-center">
+                <p className="tracking-tight p-2 md:p-0 text-sm opacity-80 max-w-[400] text-center">
                     From content creation to design and business, craft high-quality prompts instantly
                 </p>
                 <div className="flex mt-8 gap-2 items-center">
