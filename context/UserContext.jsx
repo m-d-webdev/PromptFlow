@@ -8,7 +8,7 @@ const UserContextPr = createContext();
 export const UserContext = ({ children }) => {
     const [user, setuser] = useState(null)
     const [isLoadingUser, setisLoadingUser] = useState(false)
-    const [SignalNeedTOLogin, setSignalNeedTOLogin] = useState(true)
+    const [SignalNeedTOLogin, setSignalNeedTOLogin] = useState(false)
 
     const resolverRef = useRef(null);
     const rejecterRef = useRef(null);
