@@ -14,8 +14,10 @@ import { HowToUseMove } from "./HowToUse";
 import Link from "next/link";
 import SuggesstionAi from "./SuggesstionAi";
 import ExtraMetadata from "./ExtraMetadata";
+import { useUser } from "@/context/UserContext";
 export let RestarValues = () => { }
 const GenerationPart = () => {
+    const { NeedsLogin,isLoadingUser } = useUser()
     const { value, setValue, sethowTouseCout, maxLength, minLength, isLoading, result, HandelGetResult } = usePrompt();
 
     const LaodingRef = useRef();
@@ -29,7 +31,6 @@ const GenerationPart = () => {
 
     const handelDownToLaodingRef = () => {
         HandelGetResult();
-
     }
 
 
@@ -88,7 +89,7 @@ const GenerationPart = () => {
                 </div>
                 <ExtraMetadata />
                 <div className="flex mt-5 gap-8 items-center">
-                    <Button disabled={value.length < 10 || isLoading} onClick={handelDownToLaodingRef} className={"!p-6 tracking-tighter md:w-[340]"}>
+                    <Button disabled={value.length < 10 || isLoading || isLoadingUser} onClick={() => NeedsLogin({ fun: handelDownToLaodingRef })} className={"!p-6 tracking-tighter md:w-[340]"}>
                         {
                             isLoading
                                 ? <Loader />

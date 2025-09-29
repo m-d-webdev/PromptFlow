@@ -72,8 +72,13 @@ export const PromptContextProvider = ({ children }) => {
     const HandelGetResult = async () => {
         if (value.length < minLength || value.length > maxLength) return
         setisLoading(true);
+        let finalSelects = {};
+        Object.entries(selected).map(([key, val]) => {
+            if (val != "") { finalSelects[key] = val }
+        })
+        console.log({ finalSelects });
 
-        GetResult({ description: value, enhancingOptions: selected })
+        GetResult({ description: value, enhancingOptions: finalSelects })
             .then(res => {
                 setresult(res);
                 setisLoading(false);
@@ -92,14 +97,14 @@ export const PromptContextProvider = ({ children }) => {
     }
 
     return (
-        <PContext.Provider value={{ value, SetAllowedValue, maxLength, isLoading, result, HandelGetResult, minLength, result, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected,choosePrompt }}>
+        <PContext.Provider value={{ value, SetAllowedValue, maxLength, isLoading, result, HandelGetResult, minLength, result, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected, choosePrompt }}>
             {children}
         </PContext.Provider>
     )
 }
 
 export const usePrompt = () => {
-    const { value, SetAllowedValue: setValue, maxLength, isLoading, result, HandelGetResult, minLength, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected ,choosePrompt} = useContext(PContext)
+    const { value, SetAllowedValue: setValue, maxLength, isLoading, result, HandelGetResult, minLength, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected, choosePrompt } = useContext(PContext)
     return {
         value,
         setValue,
