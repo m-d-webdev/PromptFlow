@@ -6,7 +6,7 @@ const SuggesstionAi = () => {
         <div className="flex gap-3 min-h-[90vh]  justify-center mt-14 w-full flex-col">
             <h1 className="text-2xl font-medium tracking-tighter">Try  prompt in :</h1>
             <div className=" ml-5 mt-2">
-                <h2 className="text-xl opacity-60 font-medium tracking-tight mb-1">AI for Images</h2>
+                <h2 className="text-base opacity-60 font-medium tracking-tight mb-1">AI for Images</h2>
                 <div className="flex gap-3 flex-wrap items-center">
                     <a target="_blank" className="flex gap-3 items-center p2 bg-background rounded-md border border-foreground/10 opacity-70 hover:opacity-100  duration-200 font-semibold  tracking-tighter text-base  p-3 px-4 md:min-w-[200] " href="https://midjourney.com">
                         <img className="w-[30] h-[30] object-cover" src="/logos/Midjourney Logo Vector.jpeg" alt="" />
@@ -24,7 +24,7 @@ const SuggesstionAi = () => {
 
             </div>
             <div className=" ml-5 mt-5">
-                <h2 className="text-xl opacity-60 font-medium tracking-tight mb-1">AI for Video</h2>
+                <h2 className="text-base opacity-60 font-medium tracking-tight mb-1">AI for Video</h2>
                 <div className="flex gap-3 flex-wrap items-center">
                     <a target="_blank" className="flex gap-3 items-center p2 bg-background rounded-md border border-foreground/10 opacity-70 hover:opacity-100  duration-200 font-semibold  tracking-tighter text-base  p-3 px-4 md:min-w-[200] " href="https://runwayml.com">
                         <img className="w-[30] h-[30] object-cover" src="/logos/Runway Ai Black Symbol Logo PNG.jpeg" alt="" />
@@ -38,7 +38,7 @@ const SuggesstionAi = () => {
             </div>
             <div className=" ml-5 mt-5">
 
-                <h2 className="text-xl opacity-60 font-medium tracking-tight mb-1">AI for Music</h2>
+                <h2 className="text-base opacity-60 font-medium tracking-tight mb-1">AI for Music</h2>
                 <div className="flex gap-3 flex-wrap items-center">
                     <a target="_blank" className="flex gap-3 items-center p2 bg-background rounded-md border border-foreground/10 opacity-70 hover:opacity-100  duration-200 font-semibold  tracking-tighter text-base  p-3 px-4 md:min-w-[200] " href="https://suno.ai">
                         <img className="w-[30] h-[30] object-cover" src="/logos/SUNO.jpg" alt="" />
@@ -52,7 +52,7 @@ const SuggesstionAi = () => {
                 </div>
             </div>
             <div className=" ml-5 mt-5">
-                <h2 className="text-xl opacity-60 font-medium tracking-tight mb-1">Large Language Models (LLMs)</h2>
+                <h2 className="text-base opacity-60 font-medium tracking-tight mb-1">Large Language Models (LLMs)</h2>
                 <div className="flex gap-3 flex-wrap items-center">
                     <a target="_blank" className="flex gap-3 items-center p2 bg-background rounded-md border border-foreground/10 opacity-70 hover:opacity-100  duration-200 font-semibold  tracking-tighter text-base  p-3 px-4 md:min-w-[200] " href="https://claude.ai">
                         <img className="w-[30] h-[30] object-cover" src="/logos/Claude Logo PNG Vector (SVG) Free Download.jpeg" alt="" />

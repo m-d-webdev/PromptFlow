@@ -1,23 +1,8 @@
-"use client"
-import { usePrompt } from "@/context/PromptContext";
-import { useEffect, useRef } from "react"
-
 
 const HowToUse = () => {
-    const MaingRef = useRef()
-    const { howTouseCout } = usePrompt();
-    useEffect(() => {
-        if (howTouseCout != 0) {
-
-            MaingRef.current?.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            })
-        }
-    }, [howTouseCout])
 
     return (
-        <section ref={MaingRef} className="w-full md:px-12 px-4 mb-20 tracking-tight max-w-[1000] mt-10">
+        <section id="how-to-use" className="w-full md:px-12 px-4 mb-20 tracking-tight max-w-[1000] mt-10">
             <h1 className="text-2xl font-semibold tracking-tighter ">- How to Use AI Prompt Generator</h1>
             <ul className="mt-4 flex flex-col gap-6 px-4 ">
                 <li>

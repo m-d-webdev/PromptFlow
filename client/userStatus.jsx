@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import Links from "./components/Links";
 import { Power } from "lucide-react";
 import { usePrompt } from "@/context/PromptContext";
+import Theme from "./components/Theme";
 
 
 const ProfileDropDown = ({ onClose }) => {
@@ -47,14 +48,14 @@ const ProfileDropDown = ({ onClose }) => {
                 filter: `drop-shadow(0 0 8px var(--filter-color))`
             }}
             ref={PageRef}
-            className="bg-background absolute md:w-[220] top-[110%] ltr:right-0 rtl:left-0 p-2 rounded-lg flex flex-col justify-start items-start gap-2"
+            className="bg-background absolute w-[220] top-[110%] ltr:right-0 rtl:left-0 p-2 rounded-lg flex flex-col justify-start items-start gap-2"
         >
             <div className="flex w-full gap-2">
                 {
                     isLoadingUser
                         ? <div className="loader2 w-[51] min-w-[51] h-[51]"></div>
                         : <div className="border-2 border-chart-5  p-[1.5px] rounded-full">
-                            <img src={user?.photoURL} className="w-[50] min-w-[50] h-[50]  object-cover rounded-full" alt="" />
+                            <img src={user?.photoURL} className="w-[50] min-w-[50] h-[50]  object-top object-cover rounded-full" alt="" />
                         </div>
                 }
                 <div className="w-full">
@@ -63,15 +64,16 @@ const ProfileDropDown = ({ onClose }) => {
                 </div>
             </div>
             <Links notToShow={["/", "Feedback"]} className={"!flex-col !justify-start  mt-2 px-3 !gap-2 !items-start"} />
+            <Theme />
             <button
                 disabled={isLoading}
                 onClick={() => {
                     LOGOUT_USER();
                     onClose()
                 }}
-                className="w-full p-2 hover:bg-sidebar cursor-pointer opacity-70 hover:opacity-100 px-4 flex justify-between items-center mt-3 font-medium tracking-tight border-t border-chart-5">
+                className="w-full p-2 text-sm hover:bg-sidebar text-destructive cursor-pointer opacity-50 duration-200 hover:opacity-100 px-4 flex justify-between items-center  font-medium tracking-tight border border-destructive/25 rounded-md">
                 log out
-                <Power className="w-5 h-5" />
+                <Power className="w-4 h-4" />
             </button>
         </motion.div>
     )

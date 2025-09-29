@@ -15,10 +15,11 @@ import Link from "next/link";
 import SuggesstionAi from "./SuggesstionAi";
 import ExtraMetadata from "./ExtraMetadata";
 import { useUser } from "@/context/UserContext";
+import AskForHelp from "./AskForHelp";
 export let RestarValues = () => { }
 const GenerationPart = () => {
-    const { NeedsLogin,isLoadingUser } = useUser()
-    const { value, setValue, sethowTouseCout, maxLength, minLength, isLoading, result, HandelGetResult } = usePrompt();
+    const { NeedsLogin, isLoadingUser } = useUser()
+    const { value, setValue, maxLength, minLength, isLoading, result, HandelGetResult } = usePrompt();
 
     const LaodingRef = useRef();
     const TextareaRef = useRef();
@@ -28,12 +29,9 @@ const GenerationPart = () => {
             block: "center"
         })
     }
-
     const handelDownToLaodingRef = () => {
         HandelGetResult();
     }
-
-
     useEffect(() => {
         if (isLoading) {
             LaodingRef.current?.scrollIntoView({
@@ -43,14 +41,10 @@ const GenerationPart = () => {
         }
     }, [isLoading])
     return (
-        <div className="mt-20 flex flex-col items-center  md:p-4 p-2 min-h-[70vh] w-full md:w-[80%] max-w-[1000] ">
+        <div id="generate" className="mt-20 flex flex-col items-center  md:p-4 p-2 min-h-[70vh] w-full md:w-[80%] max-w-[1000] ">
             <h1 className="text-2xl font-semibold tracking-tighter max-w-[500] text-center">
                 Start with a thought and see what our Prompt Generator creates.            </h1>
-            <div
-                style={{
-                    // filter: `drop-shadow(0 0 2px var(--filter-color))`
-                }}
-                className="flex w-full  bg-sidebar border   mt-8 rounded-xl  md:p-4 flex-col justify-center items-center">
+            <div className="flex w-full  bg-sidebar border   mt-8 rounded-xl  md:p-4 flex-col justify-center items-center">
 
                 <div ref={TextareaRef} className="p-1 mb-10  flex flex-col items-center justify-center relative max-w-[800]  w-full  h-[350]">
 
@@ -97,7 +91,9 @@ const GenerationPart = () => {
                         }
                         Generate Prompt
                     </Button>
-                    <h2 onClick={() => sethowTouseCout(pv => pv + 1)} className="hover_underline cursor-pointer hover:text-chart-1 hover:opacity-100 duration-200 tracking-tighter font-semibold opacity-70">how to use ?</h2>
+                    <Link href={"#how-to-use"}>
+                        <h2 className="hover_underline cursor-pointer hover:text-chart-1 hover:opacity-100 duration-200 tracking-tighter font-semibold opacity-70">how to use ?</h2>
+                    </Link>
                 </div>
             </div>
 
@@ -161,7 +157,7 @@ const GenerationPart = () => {
                 </div>
             }
 
-
+            <AskForHelp />
             <SuggesstionAi />
 
         </div >

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { BrainCircuit } from "lucide-react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 const MaingPart = () => {
     return (
@@ -20,27 +21,31 @@ const MaingPart = () => {
                     From content creation to design and business, craft high-quality prompts instantly
                 </p>
                 <div className="flex mt-8 gap-2 items-center">
-                    <Button>
-                        <svg
-                            className="stroke-background !w-6 !h-6"
-                            ariaHidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
+                    <Link href={"#generate"}>
+                        <Button>
+                            <svg
+                                className="stroke-white !w-6 !h-6"
+                                ariaHidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
 
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            strokeWidth="1.25"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z" />
-                        </svg>
-                        Generate prompt
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            >
+                                <path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2zm-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6z" />
+                            </svg>
+                            Generate prompt
 
-                    </Button>
-                    <Button variant={"default"}>
+                        </Button>
+                    </Link>
+                    <Link href={"/Pricing"}>
+                        <Button variant={"default"}>
 
-                        Explore Inspiration
-                    </Button>
+                            Explore Inspiration
+                        </Button>
+                    </Link>
 
                 </div>
             </div>

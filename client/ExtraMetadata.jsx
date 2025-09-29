@@ -91,18 +91,18 @@ const ExtraMetadata = () => {
                         className="overflow-hidden">
                         {Object.entries(options).map(([title, items]) => (
                             <div key={title} className="mt-4">
-                                <h1 className="text-lg font-semibold mb-1 tracking-tighter">{title}</h1>
-                                <div className="flex flex-wrap gap-3">
+                                <h1 className="text-base font-medium mb-1 tracking-tight">{title}</h1>
+                                <div className="flex flex-wrap gap-[1px]">
                                     {items.map((item) => (
                                         <button
                                             style={{
-                                                filter: `drop-shadow(0 0 2px var(--filter-color))`
+                                                filter: `drop-shadow(0 0 3px var(--filter-color))`
                                             }}
                                             key={item}
                                             onClick={() =>
                                                 setSelected((prev) => ({ ...prev, [title.toLowerCase()]: prev[title.toLowerCase()] == item ? "" : item }))
                                             }
-                                            className={`px-4 py-2 rounded-sm cursor-pointer border  transition 
+                                            className={`px-4 py-2 rounded-sm cursor-pointer   transition 
                                         ${selected[title.toLowerCase()] === item
                                                     ? "bg-chart-1 text-background"
                                                     : "bg-background text-chart-3 hover:bg-chart-1/20"

@@ -37,7 +37,7 @@ export const PromptContextProvider = ({ children }) => {
         platform: "",
         length: "",
         language: ""
-    }); const [howTouseCout, sethowTouseCout] = useState(0);
+    });
     const [isLoading, setisLoading] = useState(false);
     const [generatedPromts, setgeneratedPromts] = useState([]);
     const maxLength = 600;
@@ -97,14 +97,14 @@ export const PromptContextProvider = ({ children }) => {
     }
 
     return (
-        <PContext.Provider value={{ value, SetAllowedValue, maxLength, isLoading, result, HandelGetResult, minLength, result, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected, choosePrompt }}>
+        <PContext.Provider value={{ value, SetAllowedValue, maxLength, isLoading, result, HandelGetResult, minLength, result, generatedPromts, restar, selected, setSelected, choosePrompt }}>
             {children}
         </PContext.Provider>
     )
 }
 
 export const usePrompt = () => {
-    const { value, SetAllowedValue: setValue, maxLength, isLoading, result, HandelGetResult, minLength, generatedPromts, restar, howTouseCout, sethowTouseCout, selected, setSelected, choosePrompt } = useContext(PContext)
+    const { value, SetAllowedValue: setValue, maxLength, isLoading, result, HandelGetResult, minLength, generatedPromts, restar, selected, setSelected, choosePrompt } = useContext(PContext)
     return {
         value,
         setValue,
@@ -115,8 +115,6 @@ export const usePrompt = () => {
         minLength,
         generatedPromts,
         restar,
-        howTouseCout,
-        sethowTouseCout,
         selected,
         setSelected,
         choosePrompt
