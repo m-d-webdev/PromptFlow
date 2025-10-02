@@ -9,8 +9,10 @@ const Model = ({ children, closeOutside = true, onClose = () => { }, className, 
     };
 
     useEffect(() => {
+        document.body.classList.add("scrl_none")
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
+            document.body.classList.remove("scrl_none")
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, []);

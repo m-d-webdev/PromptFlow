@@ -1,9 +1,6 @@
+
 const page = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+    return null
 }
 
 export default page

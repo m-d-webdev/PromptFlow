@@ -29,7 +29,7 @@ const ProfileDropDown = ({ onClose }) => {
         <motion.div
             initial={{
                 opacity: 0,
-                scale: 0,
+                scale: .6,
             }}
             exit={{
                 opacity: 0,
@@ -40,6 +40,7 @@ const ProfileDropDown = ({ onClose }) => {
                 scale: 1,
                 transformOrigin: "top right",
                 transition: {
+                    duration: .2,
                     ease: "easeInOut"
                 }
 
@@ -48,22 +49,22 @@ const ProfileDropDown = ({ onClose }) => {
                 filter: `drop-shadow(0 0 8px var(--filter-color))`
             }}
             ref={PageRef}
-            className="bg-background absolute w-[220] top-[110%] ltr:right-0 rtl:left-0 p-2 rounded-lg flex flex-col justify-start items-start gap-2"
+            className="bg-background absolute w-[250] top-[110%] ltr:right-0 rtl:left-0 p-2 rounded-lg flex flex-col justify-start items-start gap-2"
         >
             <div className="flex w-full gap-2">
                 {
                     isLoadingUser
-                        ? <div className="loader2 w-[51] min-w-[51] h-[51]"></div>
+                        ? <div className="loader2 w-[41] min-w-[41] h-[51]"></div>
                         : <div className="border-2 border-chart-5  p-[1.5px] rounded-full">
-                            <img src={user?.photoURL} className="w-[50] min-w-[50] h-[50]  object-top object-cover rounded-full" alt="" />
+                            <img src={user?.photoURL} className="w-[40] min-w-[40] h-[40]  object-top object-cover rounded-full" alt="" />
                         </div>
                 }
                 <div className="w-full">
-                    <h1 className="font-bold max-w-[70%]  truncate tracking-tighter  text-nowrap">{user?.displayName}</h1>
-                    <h1 className="font-medium  opacity-70 max-w-[70%] truncate tracking-tighter text-sm text-nowrap">{user?.email}</h1>
+                    <h1 className="font-bold max-w-[90%]  truncate tracking-tighter  text-nowrap">{user?.displayName}</h1>
+                    <h1 className="font-medium  opacity-70 max-w-[90%] truncate tracking-tighter text-sm text-nowrap">{user?.email}</h1>
                 </div>
             </div>
-            <Links notToShow={["/", "Feedback"]} className={"!flex-col !justify-start  mt-2 px-3 !gap-2 !items-start"} />
+            <Links withIcon={true} notToShow={["/", "Feedback"]} className={"!flex-col !justify-start  mt-4 px-2 !gap-4 !items-start"} />
             <Theme />
             <button
                 disabled={isLoading}

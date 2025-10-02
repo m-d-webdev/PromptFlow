@@ -239,15 +239,15 @@ body {
   content: "";
   /* top: 0; */
   left: 0;
-  width: 30%;
+  width: 50%;
   rotate: -40deg;
-  height: 60%;
-  max-height: 200;
+  height: 200%;
+  /* max-height: 200; */
   background: var(--background);
-  background: linear-gradient(0deg, var(--accent) 0%, var(--background) 50%, var(--accent) 100%);
+  background: linear-gradient(90deg, var(--accent) 0%, var(--background) 50%, var(--accent) 100%);
   opacity: .7;
-  border-radius: 100%;
-  animation: animate2 1.6s ease-out infinite;
+  border-radius: 20%;
+  animation: animate2 1.8s ease-out infinite;
 }
 
 .animated_text {
@@ -261,11 +261,11 @@ body {
 
 @keyframes animate2 {
   0% {
-    left: -100%;
+    left: -300%;
   }
 
   100% {
-    left: 150%;
+    left: 300%;
 
   }
 }
@@ -300,4 +300,9 @@ body {
   100% {
     transform: rotate(360deg)
   }
+}
+
+
+.scrl_none::-webkit-scrollbar{
+  display: none;
 }

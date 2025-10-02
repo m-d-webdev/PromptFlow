@@ -9,15 +9,17 @@ const AskForHelp = () => {
             <div className="w-full flex justify-center items-center">
 
                 <a
+
                     href="https://buymeacoffee.com/iderkaoui"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 mt-5 rounded-2xl font-semibold gap-2 flex items-center w-fit px-4 tracking-tighter "
+                    className="p-3 mt-5 text-black rounded-2xl font-semibold gap-4 flex items-center w-fit px-8 tracking-tighter "
                     style={{
+                        filter: `drop-shadow(0 0 4px var(--filter-color))`,
                         backgroundColor: "#FFDD00",
                     }}
                 >
-                    ☕ Buy Me a Coffee
+                    <span>☕</span> Buy Me a Coffee
                 </a>
             </div>
         </section>

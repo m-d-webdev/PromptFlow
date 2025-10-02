@@ -10,7 +10,6 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import PreLoadingelem from "./components/PreLoadingelem";
 import { useEffect, useRef } from "react";
-import { HowToUseMove } from "./HowToUse";
 import Link from "next/link";
 import SuggesstionAi from "./SuggesstionAi";
 import ExtraMetadata from "./ExtraMetadata";
@@ -149,14 +148,21 @@ const GenerationPart = () => {
 
                             Do you find this prompt useful? Share it with us
                         </p>
-                        <Button variant={"outline"}>
-                            Add to Inspirations
-                            <Plus />
-                        </Button>
+                        <Link href={"/add-inspiration"}>
+                            <Button variant={"outline"}>
+                                Add to Inspirations
+                                <Plus />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             }
-
+ <Link href={"/add-inspiration"}>
+                            <Button variant={"outline"}>
+                                Add to Inspirations
+                                <Plus />
+                            </Button>
+                        </Link>
             <AskForHelp />
             <SuggesstionAi />
 

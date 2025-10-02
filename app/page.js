@@ -2,7 +2,6 @@ import GeneratedPrompts from "@/client/GeneratedPrompts";
 import GenerationPart from "@/client/GenerationPart";
 import HowToUse from "@/client/HowToUse";
 import MaingPart from "@/client/MaingPart";
-import Image from "next/image";
 
 export default function Home() {
   return (
