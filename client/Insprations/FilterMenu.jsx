@@ -5,30 +5,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button";
 import { ChevronDown, CircleCheck, Funnel } from "lucide-react";
 import { useInspirations } from "@/context/InspirationsContext";
-const filters = [
-    {
-        category: "Content",
-        options: ["Any", "Characters", "Scenes", "Objects", "Animals"]
-    },
-    {
-        category: "Art Style",
-        options: ["Any", "Realistic", "Cartoon", "Anime", "3D Render", "Oil Painting", "Pixel Art", "Minimalist"]
-    },
-    {
-        category: "Colors",
-        options: ["Any", "Black & White", "Warm Colors", "Cool Colors", "Pastel", "Neon"]
-    },
-    {
-        category: "Popularity & Time",
-        options: ["Any", "Most Viewed", "Most Liked", "Newest", "Oldest"]
-    },
-    {
-        category: "Mood & Theme",
-        options: ["Any", "Romantic", "Dark", "Funny", "Futuristic", "Nature"]
-    }
-];
+
 const FilterMenu = () => {
-    const { menuOpen, setmenuOpen, selectedFilters, setselectedFilters } = useInspirations();
+    const { menuOpen, setmenuOpen, selectedFilters, setselectedFilters, filters } = useInspirations();
     const [opens, setopens] = useState(filters.map(i => i.category));
 
     const menuRef = useRef();

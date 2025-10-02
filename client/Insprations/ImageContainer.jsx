@@ -4,6 +4,9 @@ import { Copy, Download, Ellipsis, Heart, MessageCircleWarning } from "lucide-re
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from 'framer-motion'
 import { downloadImage } from "@/lib/utils";
+import Loader from "../components/Loader";
+import { LIKE_POST } from "@/api/inspirations";
+import { useInspirations } from "@/context/InspirationsContext";
 const MoreOptionsMenu = ({ onClose, data }) => {
     const PageRef = useRef();
     const handleClickOutside = (e) => {
@@ -12,6 +15,7 @@ const MoreOptionsMenu = ({ onClose, data }) => {
         }
     };
 
+    const [Downloading, setDownloading] = useState(false)
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
@@ -42,12 +46,24 @@ const MoreOptionsMenu = ({ onClose, data }) => {
             className="bg-white text-black p-1 absolute bottom-4 w-[140] right-4 rounded-lg"
         >
             <button
-                onClick={() => downloadImage(data.image, "this is a name for test.jpg")}
+                onClick={async () => {
+                    setDownloading(true)
+                    await downloadImage(data.image, `${data.user?.displayName}'s image from Promt-flow.png`)
+                    setDownloading(false)
+                }}
                 className="text-sm w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
-                <Download className="w-4 h-4" />
+                {
+                    Downloading
+                        ? <Loader className={"!w-4 border-t-foreground !h-4"} />
+                        : <Download className="w-4 h-4" />
+                }
                 Download
             </button>
-            <button className="text-sm w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
+            <button
+                onClick={() => {
+                    navigator.clipboard.writeText(data.prompt)
+                }}
+                className="text-sm w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
                 <Copy className="w-4 h-4" />
                 Copy prompt
             </button>
@@ -60,6 +76,10 @@ const MoreOptionsMenu = ({ onClose, data }) => {
 }
 const ImageContainer = ({ data }) => {
     const [MoreOptionsMenuOpen, setMoreOptionsMenuOpen] = useState(false)
+    const [Downloading, setDownloading] = useState(false)
+    const [likes, setLikes] = useState(data.likes);
+    const [Liking, setLiking] = useState(false);
+    const { likedPosts, setlikedPosts } = useInspirations()
     return (
         <div className="w-full overflow-hidden relative h-[400] group">
             <img className="w-full object-cover rounded-xl h-full" src={data.image} alt="" />
@@ -72,8 +92,8 @@ const ImageContainer = ({ data }) => {
                 className="absolute left-1 rounded-full border border-white/40 w-[96%] flex justify-between duration-200 translate-y-10 group-hover:translate-y-0 items-center gap-3 bottom-1 p-1 opacity-0 group-hover:opacity-100"
             >
                 <div className="flex items-center gap-2">
-                    <img className="w-[35]  min-w-[35] rounded-full object-cover h-[35]" src={"https://i.pinimg.com/736x/eb/76/a4/eb76a46ab920d056b02d203ca95e9a22.jpg"} alt="" />
-                    <h1 className="font-semibold max-w-[100] truncate tracking-tighter text-white">{data.user?.name} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit odio voluptatem a commodi repellendus minus provident, qui sit laboriosam itaque fugit, ratione tempora eos. Suscipit nisi eaque minima magni! Debitis.</h1>
+                    <img className="w-[35]  min-w-[35] rounded-full object-cover h-[35]" src={data.user?.photoURL} alt="" />
+                    <h1 className="font-semibold max-w-[100] truncate tracking-tighter text-white">{data.user?.displayName} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit odio voluptatem a commodi repellendus minus provident, qui sit laboriosam itaque fugit, ratione tempora eos. Suscipit nisi eaque minima magni! Debitis.</h1>
                 </div>
                 <div className="relative">
 
@@ -87,21 +107,44 @@ const ImageContainer = ({ data }) => {
                 }
             </AnimatePresence>
             <button
-                onClick={() => downloadImage(data.image, "this is a name for test.jpg")}
+                onClick={async () => {
+                    setDownloading(true)
+                    await downloadImage(data.image, `${data.user?.displayName}'s image from Promt-flow.png`)
+                    setDownloading(false)
+                }}
                 style={{
                     backdropFilter: "blur(10px)"
                 }}
                 className="absolute px-4 right-1  duration-200 translate-x-10 group-hover:translate-x-0 top-2 cursor-pointer   opacity-0 group-hover:opacity-100 flex items-center p-2 border border-white/40 rounded-full  justify-center gap-2 text-sm font-medium tracking-tight text-white">
-                <Download className="w-5 h-5" />
+                {
+                    Downloading
+                        ? <Loader className={"!w-4 !h-4"} />
+                        : <Download className="w-4 h-4" />
+                }
                 Download
             </button>
 
             <button
-                style={{
-                    backdropFilter: "blur(10px)"
+                onClick={async () => {
+                    setLiking(true)
+                    await LIKE_POST({ _id: data._id }).catch(e => { setLiking(false) })
+                    setlikedPosts(pv => [...pv, data._id])
+                    setLiking(false)
+                    setLikes(pv => pv + 1)
                 }}
-                className="absolute  left-4  duration-200 -translate-x-10 group-hover:translate-x-0 top-4 cursor-pointer   opacity-0 group-hover:opacity-100 text-white">
-                <Heart className="w-5 h-5" />
+                disabled={likedPosts.includes(data._id)}
+                className="absolute gap-1  flex items-center justify-center left-4  duration-200 -translate-x-10 group-hover:translate-x-0 top-4 cursor-pointer   opacity-0 group-hover:opacity-100 text-white">
+                {
+                    Liking
+                        ? <Loader className={"!w-4 !h-4"} />
+                        : <Heart className={`w-5 h-5 ${likedPosts.includes(data._id) ? "fill-red-500 stroke-none" : ""}`} />
+                }
+                <p className="font-semibold">
+
+                    {
+                        likes
+                    }
+                </p>
             </button>
         </div>
     )

@@ -157,12 +157,12 @@ const GenerationPart = () => {
                     </div>
                 </div>
             }
-            {/* <Link href={"/add-inspiration"}>
+            <Link href={"/add-inspiration"}>
                 <Button variant={"outline"}>
                     Add to Inspirations
                     <Plus />
                 </Button>
-            </Link> */}
+            </Link>
             <AskForHelp />
             <SuggesstionAi />
 

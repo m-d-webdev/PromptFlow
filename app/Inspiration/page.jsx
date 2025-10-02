@@ -9,7 +9,7 @@ const page = () => {
 
         <div className="w-full  pt-40  pb-20 justify-center md:min-h-[100vh] flex flex-col items-center">
           <h1 className="text-4xl font-extrabold max-w-[700] text-center tracking-tighter px-2 md:px-0" >Discover over 1.2M AI-generated creations shared by our community</h1>
-          <div className="flex relative md:mt-30 mt-10 h-[300] md:h-[400] gap-3  items-center">
+          <div className="flex relative md:mt-30 mt-10 h-[300] md:h-[400] gap-3  px-2 items-center">
 
             <p className="absolute hidden md:block  -left-2 -top-5 font-medium text-sm tracking-tight  max-w-[120]">
               <Fan className="text-chart-1 absolute w-4 h-4 -top-6 -left-4" />

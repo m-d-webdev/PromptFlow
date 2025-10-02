@@ -18,7 +18,7 @@ const Model = ({ children, closeOutside = true, onClose = () => { }, className, 
     }, []);
     return (
         <div className={` ${parentClassName} fixed top-0 left-0 w-full h-full bg-foreground/30 flex justify-center p-2 items-center z-[9999]`}>
-            <div className={className} ref={PageRef}>
+            <div className={`${className} max-h-full overflow-auto scrl_none`} ref={PageRef}>
                 {children}
             </div>
         </div>

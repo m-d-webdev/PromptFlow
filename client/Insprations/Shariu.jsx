@@ -34,7 +34,7 @@ const Shariu = () => {
             {
                 Object.entries(selectedFilters).map(([k, v]) =>
                     v != "Any"
-                        ? <button key={v} className="flex duration-200 text-sm text-nowrap  items-center p-2 hover:opacity-100 duration-150  gap-2 border rounded-lg justify-center border-chart-1/50  font-medium tracking-tight py-[9px]">
+                        ? <button key={v} className="flex  text-sm text-nowrap  items-center p-2 hover:opacity-100 duration-150  gap-2 border rounded-lg justify-center border-chart-1/50  font-medium tracking-tight py-[9px]">
                             {v}
                             <X onClick={() => setselectedFilters(pv => ({ ...pv, [k]: "Any" }))} className="h-4 cursor-pointer w-4 opacity-60" />
                         </button>
