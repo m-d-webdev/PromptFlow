@@ -38,7 +38,7 @@ const FilterMenu = () => {
         }
     }
     return (
-        <div className={`min-w-[15px] z-[51]  xl:z-1`}
+        <div className={`min-w-none xl:min-w-[15px] z-[51]  xl:z-1`}
             onClick={handleCLoseWinClickOut}
         >
             <AnimatePresence>

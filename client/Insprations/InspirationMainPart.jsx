@@ -68,11 +68,11 @@ const users = [
 const InspirationMainPart = () => {
     const { menuOpen } = useInspirations()
     return (
-        <div className="w-full  mt-20 flex   justify-start items-start">
+        <div className="w-full  md:mt-20 mt-10 flex   justify-start items-start">
             <FilterMenu />
-            <div className={`!z-[2]  w-full duration-200  flex gap-4 flex-col items-start justify-start `}>
+            <div className={`!z-[2]  w-full duration-200  flex md:gap-4 gap-2 flex-col items-start justify-start `}>
                 <Shariu />
-                <div className={`grid max-w-[600] md:max-w-none grid-cols-2 items-start md:grid-cols-3 duration-200 lg:grid-cols-4  xl:grid-cols-5 2xl:grid-cols-6  px-2 justify-center flex-wrap w-full gap-4`}>
+                <div className={`grid max-w-[600] md:max-w-none grid-cols-2 items-start md:grid-cols-3 duration-200 lg:grid-cols-4  xl:grid-cols-5 2xl:grid-cols-6  md:px-2 px-1 justify-center flex-wrap w-full md:gap-4 gap-2`}>
                     {/* {Array(8).fill().map(e => <PreLoadingelem className={"w-full border border-foreground/10 rounded-xl h-[350]"} />)} */}
                     {
                         users.map(u => <ImageContainer key={u.user.id} data={u} />)

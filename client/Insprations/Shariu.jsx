@@ -7,7 +7,7 @@ import { BrushCleaning, Filter, MoveLeft, X } from "lucide-react"
 const Shariu = () => {
     const { setmenuOpen, menuOpen, selectedFilters, setselectedFilters } = useInspirations()
     return (
-        <div className="w-[90%] duration-200 max-w-[90%]  flex gap-3 items-center  justify-start overflow-auto  p-2">
+        <div className="w-[95%] duration-200 max-w-[95%]  flex gap-3 items-center  justify-start overflow-auto  p-2">
             <button
                 onClick={() => setmenuOpen(pv => !pv)}
                 className={`${menuOpen ? "bg-foreground text-background" : "bg-background  opacity-70"} flex items-center  hover:opacity-100 duration-150  gap-2 border rounded-lg justify-center border-foreground/15 text-base font-medium tracking-tight py-[9px] min-w-[120]  overflow-hidden`}
