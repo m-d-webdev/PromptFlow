@@ -17,7 +17,7 @@ const FilterMenu = () => {
         }
     }
     return (
-        <div className={`min-w-none xl:min-w-[15px] z-[51]  xl:z-1`}
+        <div className={`min-w-none xl:h-auto h-screen xl:min-w-[15px] z-[51]  xl:z-1`}
             onClick={handleCLoseWinClickOut}
         >
             <AnimatePresence>
@@ -48,7 +48,7 @@ const FilterMenu = () => {
                             }}
                             ref={menuRef}
                             className="  overflow-hidden    top-0">
-                            <div className="w-[250px] overflow-y-auto xl:max-h-[100vh] max-h-screen overflow-x-hidden min-w-[250px] p-2  rounded-lg pt-10 xl:pt-6 pb-10   bg-background">
+                            <div className="w-[250px] overflow-y-auto xl:h-auto h-screen xl:max-h-[100vh] max-h-full overflow-x-hidden min-w-[250px] p-2  rounded-lg pt-10 xl:pt-6 pb-10   bg-background">
 
                                 {
                                     filters.map(i => (

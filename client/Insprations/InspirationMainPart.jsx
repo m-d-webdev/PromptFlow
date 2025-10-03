@@ -71,12 +71,11 @@ const InspirationMainPart = () => {
 
 
     return (
-        <div className="w-full  md:mt-20 mt-10 flex   justify-start items-start">
+        <div className="w-full  mt-10 flex   justify-start items-start">
             <FilterMenu />
             <div className={`!z-[2]  w-full duration-200  flex md:gap-4 gap-2 flex-col items-start justify-start `}>
                 <Shariu />
                 <ListImages />
-               
             </div>
         </div>
     )

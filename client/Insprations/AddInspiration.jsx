@@ -110,13 +110,13 @@ const AddInspiration = () => {
                             </textarea>
 
                         </div>
-                        <label htmlFor="promptId" className="text-nowrap tracking-tighter font-medium w-full flex items-center gap-4  mt-4 px-1">Give it a name or a description <span className="w-full bg-foreground/10 p-[1px]"></span></label>
+                        <label htmlFor="promptId" className="text-nowrap tracking-tighter font-medium w-full flex items-center gap-4  mt-4 px-1">Name or  description <span className="w-full bg-foreground/10 p-[1px]"></span></label>
                         <div id="promptId" className=" flex mt-1 flex-col items-center justify-center relative   w-full h-[80]  ">
                             <div className="flex z-[3] top-0 rtl:left-0 ltr:right-0 absolute w-full gap-2 justify-end px-2 pt-1 items-center ">
                                 <Button
                                     onClick={async () => {
                                         let text = await navigator.clipboard.readText();
-                                        setValue(text)
+                                        setdescription(text)
                                     }}
                                     variant={"secondary"} className={"text-xs border hover:opacity-100 p-2 bg-transparent opacity-60 border-foreground/10 rounded-sm"}><Clipboard />
                                     Past
@@ -153,10 +153,10 @@ const AddInspiration = () => {
 
                                 </>
                                 : <>
-                                    <div className="mt-1  border border-chart-1/40 rounded-xl w-full flex justify-center items-center ">
+                                    <div className="mt-1  border border-foreground/40 opacity-50 rounded-xl w-full flex justify-center items-center ">
                                         <label htmlFor="inpData" className="cursor-pointer flex-col w-full !h-[270] flex justify-center items-center ">
-                                            <ImageUp className="w-20 h-20 text-chart-1 opacity-80 stroke-1" />
-                                            <p className="text-sm font-medium text-chart-1 opacity-80">FIle type allowed : png, jpg, jpeg ...</p>
+                                            <ImageUp className="w-20 h-20  opacity-80 stroke-1" />
+                                            <p className="text-sm font-medium  opacity-80">FIle type allowed : png, jpg, jpeg ...</p>
                                         </label>
                                     </div>
                                 </>
