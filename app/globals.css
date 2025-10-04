@@ -63,7 +63,7 @@ html {
 
 :root {
   --gray3: #fdfdfd;
-  --filter-color: #00000017;
+  --filter-color: #0000002a;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);

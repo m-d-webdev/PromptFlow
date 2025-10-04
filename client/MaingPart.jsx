@@ -10,11 +10,11 @@ const MaingPart = () => {
         <div className="w-full flex justify-center items-center  flex-col  min-h-screen  pt-40">
 
             <div className="flex items-center gap-4 mb-20 justify-center flex-col">
-                <div className="flex gap-2 items-center  border p-2 opacity-60  border-chart-1 rounded-md  justify-center">
+                <div className="flex gap-2 items-center  border p-2 opacity-50  border-chart-1 rounded-md  justify-center">
                     <BrainCircuit className="w-4 h-4 text-chart-1" />
-                    <p className="text-xs font-medium  text-chart-1 tracking-tighter ">For AI-powered ideas</p>
+                    <p className="!text-xs font-medium  text-chart-1 tracking-tighter ">For AI-powered ideas</p>
                 </div>
-                <h1 className="text-5xl font-extrabold max-w-[460] text-center tracking-tighter">
+                <h1 className="text-5xl font-extrabold max-w-[460] text-center tracking-[-3.5] ">
                     Turn Your Ideas Into <span className="text-chart-1">Perfect Prompts</span>
                 </h1>
                 <p className="tracking-tight p-2 md:p-0 text-sm opacity-80 max-w-[400] text-center">
@@ -40,7 +40,7 @@ const MaingPart = () => {
 
                         </Button>
                     </Link>
-                    <Link href={"/Pricing"}>
+                    <Link href={"/Inspiration"}>
                         <Button variant={"default"}>
 
                             Explore Inspiration

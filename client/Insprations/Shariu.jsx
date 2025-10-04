@@ -10,7 +10,7 @@ const Shariu = () => {
     const [searchVal, setsearchVal] = useState("")
     const handelSearch = (isfalse = false) => {
         if (searchVal == "" || searchVal == null ||
-            searchVal == " " || isfalse) {
+            searchVal == " " || isfalse == true) {
             if (isfalse) {
                 setsearchVal("")
             } if (selectedFilters["description"] &&
@@ -61,9 +61,12 @@ const Shariu = () => {
                         placeholder="Search .. "
                         className="w-full ml-3 border-none outline-none  tracking-tight font-medium" />
                     <Search onClick={handelSearch} className="3 opacity-60 hover:opacity-100 duration-200 cursor-pointer" />
+
                     {
                         searchVal != "" &&
-                        <X onClick={() => handelSearch(true)} />
+                        <button onClick={() => handelSearch(true)} className={"opacity-70 hover:opacity-100 cursor-pointer ml-2 border border-foreground/15 rounded-sm bg-background p-[4px] "} size={"icon"} variant={"outline"}>
+                            <X className="w-4 h-4" />
+                        </button>
                     }
                 </div>
                 <div className="flex items-center gap-1">

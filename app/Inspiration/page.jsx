@@ -1,4 +1,6 @@
-import InspirationMainPart from "@/client/Insprations/InspirationMainPart"
+import FilterMenu from "@/client/Insprations/FilterMenu";
+import ListImages from "@/client/Insprations/ListImages";
+import Shariu from "@/client/Insprations/Shariu";
 import { InspirationsContext } from "@/context/InspirationsContext";
 import { Fan, Quote } from "lucide-react";
 
@@ -8,7 +10,7 @@ const page = () => {
       <div className="max-w-[2000] w-full">
 
         <div className="w-full  pt-40  pb-20 justify-center md:min-h-[100vh] flex flex-col items-center">
-          <h1 className="text-4xl font-extrabold max-w-[700] text-center tracking-tighter px-2 md:px-0" >Discover over 1.2M AI-generated creations shared by our community</h1>
+          <h1 className="text-4xl font-extrabold max-w-[700] text-center tracking-[-3] px-2 md:px-0" >Discover over 1.2M AI-generated creations shared by our community</h1>
           <div className="flex relative md:mt-30 mt-10 h-[300] md:h-[400] gap-3  px-2 items-center">
 
             <p className="absolute hidden md:block  -left-2 -top-5 font-medium text-sm tracking-tight  max-w-[120]">
@@ -38,7 +40,13 @@ const page = () => {
           </div>
         </div>
         <InspirationsContext>
-          <InspirationMainPart />
+          <div className="w-full  mt-10 flex   justify-start items-start">
+            <FilterMenu />
+            <div className={`!z-[2] min-h-screen  w-full duration-200  flex md:gap-4 gap-2 flex-col items-start justify-start `}>
+              <Shariu />
+              <ListImages />
+            </div>
+          </div>
         </InspirationsContext>
 
       </div>
