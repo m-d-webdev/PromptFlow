@@ -4,7 +4,7 @@ import { BookImage, Crown, FolderOpen } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Links = ({ className, notToShow = [], withIcon = false }) => {
+const Links = ({ className, notToShow = ["Saved"], withIcon = false }) => {
     const pathN = usePathname()
     return (
         <div className={` ${className} flex flex-col justify-start items-start md:flex-row md:items-center gap-4   `}>
@@ -34,19 +34,25 @@ const Links = ({ className, notToShow = [], withIcon = false }) => {
                 }
                 Inspiration
             </Link>
-            <Link className={` ${pathN == "/Saved" ? "text-chart-1" : ""} flex gap-2 items-center text-accent-foreground text-sm hover:text-chart-1 tracking-tight opacity-70 hover:opacity-100 duration-100 hover:font-medium hover_underline`}
-                href={"/Saved"}>
-                {
-                    withIcon &&
-                    <FolderOpen className="w-5 h-5 " />
-                }
+            {
+                !notToShow.includes("Saved") && <Link className={` ${pathN == "/Saved" ? "text-chart-1" : ""} flex gap-2 items-center text-accent-foreground text-sm hover:text-chart-1 tracking-tight opacity-70 hover:opacity-100 duration-100 hover:font-medium hover_underline`}
+                    href={"/Saved"}>
+                    {
+                        withIcon &&
+                        <FolderOpen className="w-5 h-5 " />
+                    }
 
-                Saved
+                    Saved
 
-            </Link>
+                </Link>
+            }
             {
                 !notToShow.includes("Feedback") &&
                 <Link className={` ${pathN == "/Feedback" ? "text-chart-1" : ""}  text-accent-foreground text-sm hover:text-chart-1 tracking-tight opacity-70 hover:opacity-100 duration-100 hover:font-medium hover_underline`} href={"/Feedback"}>Feedback</Link>
+            }
+            {
+                !notToShow.includes("About") &&
+                <Link className={` ${pathN == "/About" ? "text-chart-1" : ""}  text-accent-foreground text-sm hover:text-chart-1 tracking-tight opacity-70 hover:opacity-100 duration-100 hover:font-medium hover_underline`} href={"/About"}>About</Link>
             }
         </div>
     )

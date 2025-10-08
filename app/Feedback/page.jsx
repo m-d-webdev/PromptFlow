@@ -1,3 +1,4 @@
+import AddReview from "@/client/feedback/AddReview"
 import FeedMainReviewsSection from "@/client/feedback/FeedMainPart"
 import ListReviews from "@/client/feedback/ListReviews"
 import { UserStar } from "lucide-react"
@@ -47,18 +48,11 @@ const page = () => {
             </div>
             <p className="ml-4 font-medium tracking-tight opacity-70">+12k Users Shared Their Reviews</p>
           </div>
-          <button
-            style={{
-              filter: `drop-shadow(0px 5px 5px var(--filter-color))`
-            }}
-            className="mt-15 z-[3] duration-300 border-2 border-chart-1  hover:bg-chart-1 p-3 px-4 hover:text-white rounded-full font-semibold tracking-tighter flex items-center justify-center gap-2">
-            Tell Us What You Think
-            <UserStar className="w-5 h-5" />
-          </button>
+          <AddReview />
           <FeedMainReviewsSection />
 
         </div>
-          <ListReviews />
+        <ListReviews />
       </div>
     </div>
   )
