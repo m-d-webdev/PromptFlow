@@ -1,3 +1,4 @@
+import SecondSection from "@/client/About/SecondSection"
 import { Github, MoveRight, Quote } from "lucide-react"
 import Link from "next/link"
 
@@ -24,7 +25,7 @@ const page = () => {
                 </button>
               </Link>
               <Link href={"https://github.com/m-d-webdev"} target={"_blank"} >
-                <button className="p-2 flex items-center justify-center bg-foreground text-background opacity-60 hover:opacity-100 duration-150 border border-foreground/10 mt-8 rounded-md gap-2 w-[200] font-semibold tracking-tighter">
+                <button className="p-2 flex items-center justify-center bg-foreground text-background opacity-90 hover:opacity-100 duration-150 border border-foreground/10 mt-8 rounded-md gap-2 w-[200] font-semibold tracking-tighter">
                   My GitHub Account
                   <Github />
                 </button>
@@ -33,35 +34,8 @@ const page = () => {
 
             </div>
           </div>
-      
-          <img src="/man2.png" className="h-[500] hidden md:block object-cover" alt="" />
-          <div className="w-[200] h-[300] hidden md:block  relative">
-            <div
-              style={{
-              }}
-              className="bg-background  flex flex-col items-center justify-center gap-2 -left-30 -top-20   text-foreground/70 text-center font-semibold text-sm absolute pt-8  tracking-tight   border border-foreground/10 p-4 rounded-md ">
-              <Quote className="w-4 h-4 opacity-60 text-chart-1   top-2 absolute right-2" />
-              Quality is always the goal
-            </div>
-            <div
-              style={{
-              }}
-              className="-right-10 top-15  bg-background flex flex-col items-center justify-center gap-2   text-foreground/70 text-center font-semibold text-sm absolute pt-8  tracking-tight   border border-foreground/10 p-4 rounded-md ">
-              <Quote className="w-4 h-4 opacity-60 text-chart-1   top-2 absolute right-2" />
-              builds with passion.
-            </div>
-            <div
-              style={{
-              }}
-              className="bg-background  text-nowrap flex flex-col items-center justify-center gap-2 -bottom-5 right-20   text-foreground/70 text-center font-semibold text-sm absolute pt-8  tracking-tight   border border-foreground/10 p-4 rounded-md ">
 
-              <Quote className="w-4 h-4 opacity-60 text-chart-1   top-2 absolute right-2" />
-              think before code
-            </div>
-
-          </div>
-
-
+          <SecondSection />
 
         </div>
       </div>
