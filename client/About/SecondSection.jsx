@@ -84,9 +84,9 @@ const SecondSection = () => {
         }
     }, [])
     return (
-        <div className="relative   flex  items-center h-[500]  w-[55%]">
+        <div className="relative   hidden md:flex  items-center h-[500]  w-[55%]">
 
-            <img src="/man2.png" className="h-full z-[3] hidden md:block object-cover" alt="" />
+            <img src="/man2.png" className="h-full z-[3] object-cover" alt="" />
             <div className=" hidden z-[3] md:block  ">
                 <div
                     style={{
