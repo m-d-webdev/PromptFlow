@@ -1,10 +1,8 @@
-"use client";
-
 const AskForHelp = () => {
     return (
-        <section className="mt-10">
+        <section className="mt-20">
             <h1 className="text-lg font-medium tracking-tight opacity-80">Help Unlock Advanced AI Features</h1>
-            <p className="tracking-tight mt-1 max-w-[800]"> We are working on adding powerful AI features like generating images, videos, and more.
+            <p className="tracking-tight mt-1 max-w-[800] opacity-80"> We are working on adding powerful AI features like generating images, videos, and more.
                 Right now, these features are not available. Your support helps us make them possible!</p>
             <div className="w-full flex justify-center items-center">
 

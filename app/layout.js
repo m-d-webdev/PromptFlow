@@ -21,7 +21,15 @@ export default function RootLayout({ children, modal }) {
     <html lang="en" >
       <head>
         <script src="https://accounts.google.com/gsi/client" async defer></script>
-
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Prompt Flow",
+            "url": "https://promt-flow.space",
+            "description": "A creative AI prompt generator built for developers and creators."
+          })
+        }} />
       </head>
       <body
         className={`${geistSans.className} antialiased`}

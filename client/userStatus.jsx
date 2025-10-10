@@ -11,6 +11,7 @@ import Theme from "./components/Theme";
 
 const ProfileDropDown = ({ onClose }) => {
     const { isLoadingUser, user, LOGOUT_USER } = useUser();
+
     const { isLoading } = usePrompt()
     const PageRef = useRef();
     const handleClickOutside = (e) => {
@@ -64,7 +65,7 @@ const ProfileDropDown = ({ onClose }) => {
                     <h1 className="font-medium  opacity-70 max-w-[90%] truncate tracking-tighter text-sm text-nowrap">{user?.email}</h1>
                 </div>
             </div>
-            <Links withIcon={true} notToShow={["/", "Feedback","About"]} className={"!flex-col !justify-start  mt-4 px-2 !gap-4 !items-start"} />
+            <Links withIcon={true} notToShow={["/", "Feedback", "About"]} className={"!flex-col !justify-start  mt-4 px-2 !gap-4 !items-start"} />
             <Theme />
             <button
                 disabled={isLoading}

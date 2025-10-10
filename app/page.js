@@ -3,6 +3,51 @@ import GenerationPart from "@/client/GenerationPart";
 import HowToUse from "@/client/HowToUse";
 import MaingPart from "@/client/MaingPart";
 
+export const metadata = {
+  title: "Prompt Flow — Generate Creative AI Prompts Easily",
+  description:
+    "Prompt Flow helps developers, writers, and creators build better AI prompts. Create, organize, and share prompts effortlessly with a simple and modern interface.",
+  keywords: [
+    "AI prompts",
+    "prompt generator",
+    "AI writing",
+    "prompt builder",
+    "creative prompts",
+    "chatgpt prompts",
+    "prompt flow",
+  ],
+  authors: [{ name: "Mustapha Iderkaoui", url: "https://promt-flow.space" }],
+  openGraph: {
+    title: "Prompt Flow — Generate Creative AI Prompts Easily",
+    description:
+      "Build better prompts for ChatGPT and other AI tools. Save your ideas, test them instantly, and share them with the world.",
+    url: "https://promt-flow.space",
+    siteName: "Prompt Flow",
+    images: [
+      {
+        url: "https://promt-flow.space/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Prompt Flow Website Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prompt Flow — Generate Creative AI Prompts Easily",
+    description:
+      "A simple tool to craft and share AI prompts that actually work. Built for creators and developers.",
+    images: ["https://promt-flow.space/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+
 export default function Home() {
   return (
     <div className="bg-sidebar flex flex-col items-center">
@@ -55,7 +100,7 @@ export default function Home() {
 
         </div>
       </section>
-      <HowToUse /> 
+      <HowToUse />
 
     </div >
 

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://promt-flow.space
+
+# Sitemaps
+Sitemap: https://promt-flow.space/sitemap.xml

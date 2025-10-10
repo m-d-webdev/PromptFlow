@@ -7,7 +7,7 @@ import { GET_INSPIRATION } from "@/api/inspirations";
 import PreLoadingelem from "../components/PreLoadingelem";
 
 const ListImages = () => {
-    const { menuOpen, selectedFilters } = useInspirations();
+    const {  selectedFilters } = useInspirations();
 
     const [isLoading, setIsloading] = useState(false);
     const [data, setdata] = useState([]);

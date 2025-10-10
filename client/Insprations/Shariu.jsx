@@ -1,6 +1,4 @@
 "use client"
-
-import { Button } from "@/components/ui/button"
 import { useInspirations } from "@/context/InspirationsContext"
 import { BrushCleaning, Filter, MoveLeft, Search, X } from "lucide-react"
 import { useState } from "react"
