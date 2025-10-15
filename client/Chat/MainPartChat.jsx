@@ -9,7 +9,7 @@ const MainPartChat = () => {
     const { messages } = UseAiChat()
     const { user } = useUser()
     return (
-        <div className="w-full m pb-2 h-lvh  flex flex-col items-center justify-center">
+        <div className="w-full px-2 pb-2 h-lvh  flex flex-col items-center justify-center">
             {
                 messages.length == 0
                     ?

@@ -45,7 +45,7 @@ const ListChat = () => {
     >
 
       {messages.map((msg, idx) => (
-        <div key={idx} className={`${msg.role} prose`}>
+        <div key={idx} className={`${msg.role} prose max-w-full md:max-w-[80%]`}>
           <ReactMarkdown
             components={{
               code({ className, children }) {

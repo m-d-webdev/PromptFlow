@@ -159,7 +159,7 @@ const MainAiInput = () => {
             style={{
                 filter: `drop-shadow(0 0 1px var(--filter-color))`
             }}
-            className={`bg-background mt-4  relative duration-200 rounded-md p-1 ${messages.length == 0 ? "w-[600]" : "w-full max-w-[1000] flex items-start "} `}>
+            className={`bg-background md:mb-0 mb-2  mt-4  relative duration-200 rounded-md p-1 ${messages.length == 0 ? "md:w-[600] w-full" : "w-full max-w-[1000] flex items-start "} `}>
             {
                 messages.length > 0 &&
                 <button onClick={() => setlistOptionsOpen(pv => !pv)} className="p-1 mb-[5] self-end opacity-60">
