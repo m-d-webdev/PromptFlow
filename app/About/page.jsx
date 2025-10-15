@@ -18,14 +18,14 @@ const page = () => {
             </p>
             <div className="flex w-full  flex-col md:flex-row items-center gap-3">
 
-              <Link href={"https://iderkaoui.vercel.app/en/contact-me"}className="w-full md:w-fit" target={"_blank"} >
+              <Link href={"https://iderkaoui.vercel.app/en/contact-me"} className="w-full md:w-fit" target={"_blank"} >
                 <button className="p-2 flex items-center justify-center bg-background border border-foreground/10 mt-8 rounded-md gap-2 w-full md:w-[160] font-semibold tracking-tighter">
                   Contact me
                   <MoveRight />
                 </button>
               </Link>
-              <Link href={"https://github.com/m-d-webdev"}className="w-full md:w-fit" target={"_blank"} >
-                <button className="p-2 flex items-center justify-center bg-foreground text-background opacity-90 hover:opacity-100 duration-150 border border-foreground/10 mt:mt-8 rounded-md gap-2 w-full md:w-[200] font-semibold tracking-tighter">
+              <Link href={"https://github.com/m-d-webdev"} className="w-full md:w-fit" target={"_blank"} >
+                <button className="p-2 flex items-center justify-center bg-foreground text-background opacity-90 hover:opacity-100 duration-150 border border-foreground/10 md:mt-8 rounded-md gap-2 w-full md:w-[200] font-semibold tracking-tighter">
                   My GitHub Account
                   <Github />
                 </button>

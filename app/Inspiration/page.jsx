@@ -4,6 +4,52 @@ import Shariu from "@/client/Insprations/Shariu";
 import { InspirationsContext } from "@/context/InspirationsContext";
 import { Fan, Quote } from "lucide-react";
 
+export const metadata = {
+  title: "Prompt Flow — Explore and Share AI-Generated Images",
+  description:
+    "Discover, explore, and share creative AI-generated images made by the community. Dive into a world of imagination powered by artificial intelligence.",
+  keywords: [
+    "AI images",
+    "AI art",
+    "image generator",
+    "AI gallery",
+    "explore AI art",
+    "share AI creations",
+    "prompt flow images",
+    "creative AI visuals",
+  ],
+  authors: [{ name: "Mustapha Iderkaoui", url: "https://www.promt-flow.space/Inspiration" }],
+  openGraph: {
+    title: "Prompt Flow — Explore and Share AI-Generated Images",
+    description:
+      "Explore a global gallery of AI-generated art. Share your own creations, discover inspiring visuals, and connect with a community of creative minds.",
+    url: "https://www.promt-flow.space/Inspiration",
+    siteName: "Prompt Flow",
+    images: [
+      {
+        url: "https://promt-flow.space/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Prompt Flow AI Image Gallery Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prompt Flow — Explore and Share AI-Generated Images",
+    description:
+      "Discover inspiring AI-generated visuals and share your own creations with the world. Join the creative gallery on Prompt Flow.",
+    images: ["https://promt-flow.space/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+
 const page = () => {
   return (
     <div className=" flex flex-col items-center w-full">

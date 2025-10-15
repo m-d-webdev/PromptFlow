@@ -58,7 +58,7 @@ const MenuHeader = ({ onClose }) => {
             style={{
                 filter: `drop-shadow(0 0 4px var(--filter-color))`
             }}
-            className=" w-[100vw] flex flex-col items-start justify-start  p-3 absolute top-0 ltr:left-0 rtl:right-0 bg-background rounded-md">
+            className={` w-[100vw]   flex flex-col items-start justify-start  p-3 absolute top-0 ltr:left-0 rtl:right-0 bg-background rounded-md`}>
             <div className="w-full flex px-5 mb-6 items-end justify-end">
                 <button onClick={onClose}>
                     <X />
@@ -70,10 +70,11 @@ const MenuHeader = ({ onClose }) => {
     )
 }
 const Header = () => {
+    const pathName = usePathname();
     const [menuOpen, setmenuOpen] = useState(false)
     return (
 
-        <div className="w-full z-50  fixed top-0 left-0 flex items-center justify-center">
+        <div className={`w-full z-50  ${pathName == "/Chat" ? "" : "fixed"}   top-0 left-0 flex items-center justify-center`}>
             <div
                 style={{
                     backdropFilter: "blur(100px)"

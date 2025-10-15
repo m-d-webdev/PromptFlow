@@ -3,6 +3,9 @@
 import { BookImage, Crown, FolderOpen } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from 'react'
+import { Sparkles } from "./icons";
+
 
 const Links = ({ className, notToShow = ["Saved"], withIcon = false }) => {
     const pathN = usePathname()
@@ -23,6 +26,16 @@ const Links = ({ className, notToShow = ["Saved"], withIcon = false }) => {
                         <Crown className="w-5 h-5 " />
                     }
                     Pricing
+                </Link>
+            }
+            {
+                !notToShow.includes("Chat") &&
+                <Link className={` ${pathN == "/Chat" ? "text-chart-1" : ""} group md:ml-1 md:mr-1 flex gap-1 items-center text-accent-foreground text-sm hover:text-chart-1 tracking-tight opacity-70 hover:opacity-100 duration-100 hover:font-medium hover_underline`} href={"/Chat"}>
+                    <span>
+
+                        Chat
+                    </span>
+                <Sparkles className={`w-5 h-5 duration-200 group-hover:stroke-chart-1 ${pathN == "/Chat" ? "stroke-chart-1" : ""}`} />
                 </Link>
             }
             <Link

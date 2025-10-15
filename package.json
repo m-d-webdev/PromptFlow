@@ -8,10 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "postbuild": "next-sitemap"
-
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "@tailwindcss/typography": "^0.5.19",
     "axios": "^1.12.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -26,6 +26,7 @@
     "react-dom": "19.1.0",
     "react-lottie": "^1.2.10",
     "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^15.6.6",
     "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.3.1"
   },

@@ -303,6 +303,182 @@ body {
 }
 
 
-.scrl_none::-webkit-scrollbar{
+.scrl_none::-webkit-scrollbar {
   display: none;
+}
+
+/* --AI STYLING __________________________ */
+
+
+/* Add this CSS to style your markdown content */
+
+
+.user,
+.assistant {
+  padding: 10px;
+  letter-spacing: -.4;
+  border-radius: 20px;
+  max-width: 80%;
+
+}
+
+.user {
+  align-self: flex-end;
+  background-color: var(--background);
+  border: solid 1px var(--sidebar-border);
+}
+
+.assistant {
+  /* background-color: var(--color-background); */
+  /* border: 1px solid var(--color-sidebar-border); */
+  align-self: flex-start;
+}
+
+/* Markdown styling */
+.assistant h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.assistant h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.assistant h3 {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.assistant h4 {
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.assistant p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.assistant strong {
+  font-weight: bold;
+}
+
+.assistant em {
+  font-style: italic;
+}
+
+.assistant ul,
+.assistant ol {
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+.assistant li {
+  margin-bottom: 0.1em;
+  list-style: outside;
+  opacity: .9;
+}
+
+
+
+.assistant pre:first-child {
+  padding: 5px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 1em;
+  border: solid 1px var(--color-sidebar-border);
+}
+
+.assistant pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.assistant blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 15px;
+  margin-left: 0;
+  color: #666;
+  font-style: italic;
+}
+
+.assistant a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.assistant a:hover {
+  text-decoration: underline;
+}
+
+.assistant hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 1em 0;
+}
+
+.assistant table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.assistant th,
+.assistant td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.assistant th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* --------------------------------- */
+.spinner {
+  width: 25px;
+  height: 25px;
+  min-height: 25px;
+  display: grid;
+  border: 2.2px solid #0000;
+  border-radius: 50%;
+  border-color: #dbdcef #0000;
+  animation: spinner-e04l1k 1s infinite linear;
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 1.6px;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  border-color: var(--foreground) #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.spinner::after {
+  margin: 6.4px;
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
 }

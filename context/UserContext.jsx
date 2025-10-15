@@ -36,24 +36,16 @@ export const UserContext = ({ children }) => {
                         })
                 })
         } else {
-            await GoogleOneTap()
-                .then(res1 => {
+            await loginWithGoogle()
+                .then(res => {
                     setisLoadingUser(false)
-                    setuser(res1)
+                    setuser(res)
                     ok = true;
                 })
-                .catch(async err => {
-                    await loginWithGoogle()
-                        .then(res => {
-                            setisLoadingUser(false)
-                            setuser(res)
-                            ok = true;
-                        })
-                        .catch(async er => {
-                            setisLoadingUser(false)
-                            ok = false;
+                .catch(async er => {
+                    setisLoadingUser(false)
+                    ok = false;
 
-                        })
                 })
 
         };
