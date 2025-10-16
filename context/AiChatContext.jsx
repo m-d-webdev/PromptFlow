@@ -31,7 +31,7 @@ export const AiChatContext = ({ children }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${Cookies.get("access_token")}`
                 },
-                body: JSON.stringify({ messages: updatedMessages.slice(updatedMessages.length - 5, updatedMessages.length) }),
+                body: JSON.stringify({ messages: updatedMessages.map(m => m.role == "assistant" ? { role: "assistant", content: m.content.substring(0, 400) } : m).slice(updatedMessages.length - 5, updatedMessages.length) }),
             });
 
             const reader = response.body.getReader();

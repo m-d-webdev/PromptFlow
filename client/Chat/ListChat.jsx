@@ -10,19 +10,36 @@ import remarkGfm from "remark-gfm";
 const ListChat = () => {
   const { isLoading, messages } = UseAiChat();
   const [auScrollOn, setauScrollOn] = useState(false);
+  const [isTakesLongToRespond, setisTakesLongToRespond] = useState(false);
 
   useEffect(() => {
-    setauScrollOn(true)
+    let t;
+    if (isLoading) {
+      t = setTimeout(() => {
+        setisTakesLongToRespond(true)
+
+      }, 6000)
+    }
+    else {
+      setisTakesLongToRespond(false)
+
+    }
+    return () => {
+      clearTimeout(t)
+    }
   }, [isLoading]);
 
 
   const messagesRef = useRef()
   useEffect(() => {
-    if (auScrollOn) {
-      messagesRef.current?.scrollTo({
-        top: messagesRef.current?.scrollHeight,
-        left: 0,
-      });
+    let t;
+    // messagesRef.current?.scrollTo({
+    //   top: messagesRef.current?.scrollHeight,
+    //   left: 0,
+    //   behavior: "smooth"
+    // });
+    return () => {
+      clearTimeout(t)
     }
   }, [messages]);
 
@@ -41,7 +58,7 @@ const ListChat = () => {
       }}
       onClick={e => setauScrollOn(false)}
       ref={messagesRef}
-      className="w-full px-2 pb-10 scrl_none  flex flex-col justify-start items-start gap-4 max-w-[1000] max-h-full  overflow-auto pt-20"
+      className="w-full px-2 pb-60 scrl_none   flex flex-col justify-start items-start gap-4 max-w-[1000] max-h-full  overflow-auto pt-20"
     >
 
       {messages.map((msg, idx) => (
@@ -68,10 +85,15 @@ const ListChat = () => {
 
       {
         isLoading &&
-        <div className="spinner ml-2 "></div>
+        <div className="flex items-center gap-3">
+          <div className="spinner ml-2 "></div>
+          {
+            isTakesLongToRespond &&
+            <p className="opacity-60 text-sm ">This may take a moment </p>
+          }
+        </div>
 
       }
-
     </motion.div>
   )
 }

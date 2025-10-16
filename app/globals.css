@@ -389,10 +389,11 @@ body {
 
 
 
-.assistant pre:first-child {
-  padding: 5px;
+.assistant > pre {
+  padding: 8px;
   border-radius: 5px;
   overflow-x: auto;
+  background-color: var(--gray2);
   margin-bottom: 1em;
   border: solid 1px var(--color-sidebar-border);
 }
@@ -440,7 +441,7 @@ body {
 }
 
 .assistant th {
-  background-color: #f2f2f2;
+  background-color: var(--accent);
   font-weight: bold;
 }
 
