@@ -74,7 +74,7 @@ const Header = () => {
     const [menuOpen, setmenuOpen] = useState(false)
     return (
 
-        <div className={`w-full z-50  ${pathName == "/Chat" ? "" : "fixed"}   top-0 left-0 flex items-center justify-center`}>
+        <div className={`w-full z-50  ${pathName == "/Chat" ? "bg-sidebar" : "fixed"}   top-0 left-0 flex items-center justify-center`}>
             <div
                 style={{
                     backdropFilter: "blur(100px)"

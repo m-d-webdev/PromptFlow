@@ -13,16 +13,18 @@ const MainPartChat = () => {
             {
                 messages.length == 0
                     ?
-                    <h1 className="text-3xl mb-5 font-medium tracking-[-1.1] max-w-[320] text-center">
-                        {
-                            user
-                                ? `${getGreeting()}, ${user.displayName?.substring(0, user.displayName?.indexOf(" "))}`
-                                :
-                                <>
-                                    Explore Ideas With Your Smart <span className="text-chart-1">AI Companion</span>
-                                </>
-                        }
-                    </h1>
+                    <div className="mb-5 flex flex-col items-center gap-5">
+                        <h1 className="text-3xl mb-5 font-medium tracking-[-1.1] max-w-[320] text-center">
+                            {
+                                user
+                                    ? `${getGreeting()}, ${user.displayName?.substring(0, user.displayName?.indexOf(" "))}`
+                                    :
+                                    <>
+                                        Explore Ideas With Your Smart <span className="text-chart-1">AI Companion</span>
+                                    </>
+                            }
+                        </h1>
+                    </div>
                     : <ListChat />
             }
             <MainAiInput />

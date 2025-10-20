@@ -1,5 +1,4 @@
 "use client";
-import API from "@/lib/axios";
 import Cookies from "js-cookie";
 import { createContext, useContext, useState } from "react"
 const AiChatContextP = createContext();
@@ -7,7 +6,6 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export const AiChatContext = ({ children }) => {
     const [isLoading, setLoading] = useState(false);
-
     const [messages, setMessages] = useState([])
 
 

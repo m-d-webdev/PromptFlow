@@ -17,7 +17,6 @@ const ListChat = () => {
     if (isLoading) {
       t = setTimeout(() => {
         setisTakesLongToRespond(true)
-
       }, 6000)
     }
     else {
@@ -30,18 +29,23 @@ const ListChat = () => {
   }, [isLoading]);
 
 
+  const BOTTOM_ELEM_REF = useRef()
   const messagesRef = useRef()
   useEffect(() => {
     let t;
-    // messagesRef.current?.scrollTo({
-    //   top: messagesRef.current?.scrollHeight,
-    //   left: 0,
-    //   behavior: "smooth"
-    // });
+    if (isLoading) {
+
+      messagesRef.current?.scrollTo({
+        top: messagesRef.current?.scrollHeight,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+
     return () => {
       clearTimeout(t)
     }
-  }, [messages]);
+  }, [isLoading]);
 
   return (
     <motion.div
@@ -58,7 +62,7 @@ const ListChat = () => {
       }}
       onClick={e => setauScrollOn(false)}
       ref={messagesRef}
-      className="w-full px-2 pb-60 scrl_none   flex flex-col justify-start items-start gap-4 max-w-[1000] max-h-full  overflow-auto pt-20"
+      className="w-full px-2  scrl_none   flex flex-col justify-start items-start gap-4 max-w-[1000] max-h-full  overflow-auto pt-20"
     >
 
       {messages.map((msg, idx) => (
@@ -82,18 +86,18 @@ const ListChat = () => {
           </ReactMarkdown>
         </div>
       ))}
-
       {
         isLoading &&
         <div className="flex items-center gap-3">
           <div className="spinner ml-2 "></div>
           {
             isTakesLongToRespond &&
-            <p className="opacity-60 text-sm ">This may take a moment </p>
+            <p className="opacity-60 text-sm">This may take a moment </p>
           }
         </div>
 
       }
+      <div ref={BOTTOM_ELEM_REF} className="w-full !h-[80%] min-h-[80%]   "></div>
     </motion.div>
   )
 }

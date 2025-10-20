@@ -6,6 +6,7 @@ import { BrandZoom, Photo, WorldSearch } from "../components/icons";
 import { UseAiChat } from "@/context/AiChatContext";
 import Loader from "../components/Loader";
 import { useUser } from "@/context/UserContext";
+import StartSuggestions from "./StartSuggestions";
 
 const ButtomUpload = ({ }) => {
     const [menuOpen, setmenuOpen] = useState(false);
@@ -145,7 +146,7 @@ const MainAiInput = () => {
             setlistOptionsOpen(false)
         }
     };
-
+    const inRef = useRef()
     useEffect(() => {
         if (listOptionsOpen) {
             document.addEventListener("mousedown", handleClickOutside);
@@ -154,56 +155,103 @@ const MainAiInput = () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [listOptionsOpen]);
+    const [isFocused, setFOcused] = useState(false)
+    useEffect(() => {
+        const handelWriting = e => {
+            if (isFocused) return
+            // Ignore shortcut or system key combinations
+            if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+            // Ignore special keys (Shift, Tab, Arrow keys, etc.)
+            if (e.key.length !== 1) return;
+            setInput(pv => pv + e.key);
+            inRef.current?.focus();
+            e.preventDefault();
+
+        }
+        if (window) {
+            window.addEventListener("keydown", handelWriting)
+        }
+        return () => {
+            window.removeEventListener("keydown", handelWriting)
+        }
+    }, [isFocused])
+
     return (
-        <div
-            style={{
-                filter: `drop-shadow(0 0 1px var(--filter-color))`
-            }}
-            className={`bg-background md:mb-0 mb-2  mt-4  relative duration-200 rounded-md p-1 ${messages.length == 0 ? "md:w-[600] w-full" : "w-full max-w-[1000] flex items-start "} `}>
+        <>
             {
-                messages.length > 0 &&
-                <button onClick={() => setlistOptionsOpen(pv => !pv)} className="p-1 mb-[5] self-end opacity-60">
-                    <LayoutGrid className="w-4 h-4" />
-                </button>
+                messages.length == 0 &&
+                <StartSuggestions onSetMessage={m => {
+                    setInput(m);
+                    inRef.current?.focus()
+
+                }} />
             }
-            <textarea style={{ height }} onKeyDown={HandleInputDown} value={input} onChange={HandleChange} type="text" className={`border-none scrl_none ${messages.length == 0 ? "" : " "}  p-2 font-medium text-sm tracking-tight max-h-[300] outline-none w-full resize-none`} placeholder="Ask anything..." ></textarea>
 
-
-            <div ref={SideMenuRef} className={`${messages.length == 0 ? "w-full"
-                : `absolute  ml-9 left-0 border border-foreground/10 w-[40%] bottom-1.5 py-1 rounded-md ${listOptionsOpen ? "translate-y-1" : "-translate-y-10 opacity-0 "}  bg-background `
+            <div
+                style={{
+                    filter: `drop-shadow(0 0 1px var(--filter-color))`
+                }}
+                className={`bg-background md:mb-0 mb-2  mt-4  relative duration-200 rounded-md p-1 ${messages.length == 0 ? "md:w-[700] w-full" : "w-full max-w-[1000] flex items-start "} `}>
+                {
+                    messages.length > 0 &&
+                    <button onClick={() => setlistOptionsOpen(pv => !pv)} className="p-1 mb-[5] self-end opacity-60">
+                        <LayoutGrid className="w-4 h-4" />
+                    </button>
                 }
+                <textarea
+                    onFocus={() => setFOcused(true)}
+                    onBlur={() => setFOcused(false)}
+                    ref={inRef}
+                    style={{ height }}
+                    onKeyDown={HandleInputDown}
+                    value={input}
+                    onChange={HandleChange}
+                    type="text"
+                    className={`border-none scrl_none ${messages.length == 0 ? "" : " "}  p-2 font-medium text-sm tracking-tight max-h-[300] outline-none w-full resize-none`}
+                    placeholder="Ask anything..." >
+
+                </textarea>
+
+
+
+                <div ref={SideMenuRef} className={`${messages.length == 0 ? "w-full"
+                    : `absolute  ml-9 left-0 border border-foreground/10 w-[40%] bottom-1.5 py-1 rounded-md ${listOptionsOpen ? "translate-y-1" : "-translate-y-10 opacity-0 "}  bg-background `
+                    }
                  duration-200   mt-1 px-2 flex justify-between items-center`}>
-                <div className="flex gap-2 items-center">
-                    <ButtomUpload />
-                    <button onClick={() => setsearchOn(pv => !pv)} className="flex ml-1 opacity-70 p-1 relative border  border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-200 items-center gap-1 ">
-                        <WorldSearch className={`w-5 ${searchOn ? "stroke-chart-1" : ""}  duration-150 h-5`} />
-                    </button>
+                    <div className="flex gap-2 items-center">
+                        <ButtomUpload />
+                        <button onClick={() => setsearchOn(pv => !pv)} className="flex ml-1 opacity-70 p-1 relative border  border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-200 items-center gap-1 ">
+                            <WorldSearch className={`w-5 ${searchOn ? "stroke-chart-1" : ""}  duration-150 h-5`} />
+                        </button>
+                    </div>
+                    <div className="flex gap-4 items-center">
+                        <button className="flex opacity-50 p-1 relative border pr border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-200 items-end gap-1 justify-end">
+                            <Mic className="w-4 h-4 stroke-[1.5]" />
+                            <Lock className="w-3 h-3 opacity-70 absolute -right-1 bottom-0 stroke-[1.5]" />
+                        </button>
+                        <button onClick={() => NeedsLogin({ fun: () => sendMessage(input) })} className="flex p-1 bg-accent  relative border pr border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-300 items-end gap-1 justify-end">
+                            {
+                                isLoading
+                                    ? <Loader className={"border-t-foreground !w-5 !h-5"} />
+                                    : <ArrowUp className="w-5 h-5 stroke-[1.5]" />
+                            }
+                        </button>
+                    </div>
                 </div>
-                <div className="flex gap-4 items-center">
-                    <button className="flex opacity-50 p-1 relative border pr border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-200 items-end gap-1 justify-end">
-                        <Mic className="w-4 h-4 stroke-[1.5]" />
-                        <Lock className="w-3 h-3 opacity-70 absolute -right-1 bottom-0 stroke-[1.5]" />
-                    </button>
-                    <button onClick={() => NeedsLogin({ fun: () => sendMessage(input) })} className="flex p-1 bg-accent  relative border pr border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-300 items-end gap-1 justify-end">
+                {
+                    messages.length > 0 &&
+                    <button onClick={() => NeedsLogin({ fun: () => sendMessage(input) })} className="flex p-1 bg-accent  self-end mr-1 mb-[3] relative border pr border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-300 items-end gap-1 justify-end">
                         {
                             isLoading
                                 ? <Loader className={"border-t-foreground !w-5 !h-5"} />
                                 : <ArrowUp className="w-5 h-5 stroke-[1.5]" />
                         }
                     </button>
-                </div>
-            </div>
-            {
-                messages.length > 0 &&
-                <button onClick={() => NeedsLogin({ fun: () => sendMessage(input) })} className="flex p-1 bg-accent  self-end mr-1 mb-[3] relative border pr border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-300 items-end gap-1 justify-end">
-                    {
-                        isLoading
-                            ? <Loader className={"border-t-foreground !w-5 !h-5"} />
-                            : <ArrowUp className="w-5 h-5 stroke-[1.5]" />
-                    }
-                </button>
-            }
-        </div >
+                }
+            </div >
+        </>
+
     )
 }
 
