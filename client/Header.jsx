@@ -79,10 +79,10 @@ const Header = () => {
                 style={{
                     backdropFilter: "blur(100px)"
                 }}
-                className="p-1 hidden  gap-2 bg-background/40 w-full mt-3 md:flex relative itmes-center justify-between  px-4  rounded-sm border border-foreground/20  max-w-[900]">
+                className="p-1 hidden mt-1  gap-2 bg-background/40 w-full mt-s1 md:flex relative itmes-center justify-between  px-4  rounded-full  border border-foreground/15  max-w-[900]">
                 <Logo />
                 <Links />
-                <div className="flex gap-2 justify-center  items-center">
+                <div className="flex gap-4 justify-center  items-center">
 
                     <UpgradeButton />
                     <UserStatus />

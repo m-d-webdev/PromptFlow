@@ -7,20 +7,22 @@ import { GET_INSPIRATION } from "@/api/inspirations";
 import PreLoadingelem from "../components/PreLoadingelem";
 
 const ListImages = () => {
-    const {  selectedFilters } = useInspirations();
+    const { selectedFilters } = useInspirations();
 
     const [isLoading, setIsloading] = useState(false);
     const [data, setdata] = useState([]);
 
     const handleGetData = async () => {
+
         let finalObject = {};
+
         Object.entries(selectedFilters).map(([k, v]) => {
             if (v != "Any" && v != null & v != "") {
                 finalObject[k.replace(/ /g, "").toLowerCase()] = v
             }
-        })
+        });
+
         setIsloading(true);
-        console.log({ finalObject });
 
         GET_INSPIRATION(finalObject)
             .then(res => {
@@ -41,7 +43,7 @@ const ListImages = () => {
 
             {
                 isLoading
-                    ? Array(8).fill().map((e,i) => <PreLoadingelem key={i} className={"w-full opacity-50 border border-foreground/10 rounded-xl h-[350]"} />)
+                    ? Array(8).fill().map((e, i) => <PreLoadingelem key={i} className={"w-full opacity-50 border border-foreground/10 rounded-xl h-[350]"} />)
                     : data.map((u, i) => <ImageContainer key={i} data={u} />)
             }
         </div>

@@ -51,11 +51,11 @@ const MoreOptionsMenu = ({ onClose, data }) => {
                     await downloadImage(data.image, `${data.user?.displayName}'s image from Promt-flow.png`)
                     setDownloading(false)
                 }}
-                className="text-sm w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
+                className="text-xs w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
                 {
                     Downloading
-                        ? <Loader className={"!w-4 border-t-foreground !h-4"} />
-                        : <Download className="w-4 h-4" />
+                        ? <Loader className={"!w-[12]  border-t-foreground !h-[12] "} />
+                        : <Download className="w-[12] h-[12]" />
                 }
                 Download
             </button>
@@ -63,12 +63,12 @@ const MoreOptionsMenu = ({ onClose, data }) => {
                 onClick={() => {
                     navigator.clipboard.writeText(data.prompt)
                 }}
-                className="text-sm w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
-                <Copy className="w-4 h-4" />
+                className="text-xs w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
+                <Copy className="w-[12] h-[12]" />
                 Copy prompt
             </button>
-            <button className="text-sm w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
-                <MessageCircleWarning className="w-4 h-4" />
+            <button className="text-xs w-full hover:border-foreground/20 rounded-sm duration-200 border border-transparent flex items-center font-medium tracking-tight p-1 py-2 hover:bg-accent opacity-80 hover:opacity-100 cursor-pointer gap-2 text-nowrap">
+                <MessageCircleWarning className="w-[12] h-[12]" />
                 Report
             </button>
         </motion.div>
@@ -89,13 +89,13 @@ const ImageContainer = ({ data }) => {
                     backdropFilter: "blur(5px)",
                     filter: `drop-shadow(0 0 4px var(--filter-color))`
                 }}
-                className="absolute left-1 rounded-full border border-white/40 w-[96%] flex justify-between duration-200 translate-y-10 group-hover:translate-y-0 items-center gap-3 bottom-1 p-1 opacity-0 group-hover:opacity-100"
+                className="absolute left-1 rounded-full border border-white/40 w-[96%] flex justify-between duration-200 translate-y-10 group-hover:translate-y-0 items-center  bottom-1 p-1 opacity-0 group-hover:opacity-100"
             >
-                <div className="flex items-center gap-2">
+                <div className="flex  min-w-[90%] pr-1  items-center gap-2 overflow-hidden">
                     <img className="w-[35]  min-w-[35] rounded-full object-cover h-[35]" src={data.user?.photoURL} alt="" />
-                    <h1 className="font-semibold max-w-[100] truncate tracking-tighter text-white">{data.user?.displayName} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit odio voluptatem a commodi repellendus minus provident, qui sit laboriosam itaque fugit, ratione tempora eos. Suscipit nisi eaque minima magni! Debitis.</h1>
+                    <h1 className="font-semibold max-w-full truncate tracking-tighter text-white">{data.user?.displayName} </h1>
                 </div>
-                <div className="relative">
+                <div className="relative mt-2">
 
                     <button onClick={() => setMoreOptionsMenuOpen(true)}><Ellipsis className="text-white w-5 h-5 mr-2 cursor-pointer" /></button>
                 </div>

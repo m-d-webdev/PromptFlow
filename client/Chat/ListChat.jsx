@@ -62,11 +62,11 @@ const ListChat = () => {
       }}
       onClick={e => setauScrollOn(false)}
       ref={messagesRef}
-      className="w-full px-2  scrl_none   flex flex-col justify-start items-start gap-4 max-w-[1000] max-h-full  overflow-auto pt-20"
+      className="w-full px-2  scrl_none   flex flex-col justify-start items-start  max-w-[1000] max-h-full  overflow-auto pt-20"
     >
 
       {messages.map((msg, idx) => (
-        <div key={idx} className={`${msg.role} prose max-w-full md:max-w-[80%]`}>
+        <div key={idx} className={`${msg.role} prose mt-4 max-w-full md:max-w-[80%]`}>
           <ReactMarkdown
             components={{
               code({ className, children }) {
@@ -88,7 +88,7 @@ const ListChat = () => {
       ))}
       {
         isLoading &&
-        <div className="flex items-center gap-3">
+        <div className="flex items-center mt-1 gap-3">
           <div className="spinner ml-2 "></div>
           {
             isTakesLongToRespond &&

@@ -86,7 +86,7 @@ const ListReviews = () => {
                 {
                     isLoading
                         ? Array(7).fill().map((r, i) => <PreLoadingelem key={i} className={"h-[250] !w-full"} />)
-                        : reviews.map(r => <ReviewCard onClick={() => setextendtingOne(r)} key={r.user.name} data={r} />)
+                        : reviews.map(r => <ReviewCard onClick={() => setextendtingOne(r)} key={r.user?.displayName} data={r} />)
                 }
             </div>
             <div className="w-full flex items-center justify-center flex-col max-w-[1200] p-2 mt-8">

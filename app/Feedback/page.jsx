@@ -1,7 +1,6 @@
 import AddReview from "@/client/feedback/AddReview"
 import FeedMainReviewsSection from "@/client/feedback/FeedMainPart"
 import ListReviews from "@/client/feedback/ListReviews"
-import { UserStar } from "lucide-react"
 
 const page = () => {
   return (

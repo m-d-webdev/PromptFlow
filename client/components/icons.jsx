@@ -11,7 +11,7 @@ export const AIpen = ({ ...props }) => {
 export const Sparkles = ({ ...props }) => {
     return (
 
-        <svg {...props} ariaHidden="true"
+        <svg {...props} aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -32,7 +32,7 @@ import React from 'react'
 export const Photo = ({ ...props }) => {
     return (
 
-        <svg {...props} ariaHidden="true"
+        <svg {...props} aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -55,7 +55,7 @@ export const Photo = ({ ...props }) => {
 export const BrandZoom = ({ ...props }) => {
     return (
 
-        <svg {...props} ariaHidden="true"
+        <svg {...props} aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -76,7 +76,7 @@ export const BrandZoom = ({ ...props }) => {
 export const WorldSearch = ({ ...props }) => {
     return (
 
-        <svg {...props} ariaHidden="true"
+        <svg {...props} aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="36"
             height="36"
@@ -94,6 +94,29 @@ export const WorldSearch = ({ ...props }) => {
             <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
             <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
             <path d="M20.2 20.2l1.8 1.8" />
+        </svg>
+
+    )
+}
+export const GenerateImageIcon = ({ ...props }) => {
+    return (
+        <svg {...props}
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000000"
+            stroke-width="1.25"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <path d="M15 8h.01" />
+            <path d="M12 21h-6a3 3 0 0 1 -3 -3v-12a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v6" />
+            <path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l3.993 3.993" />
+            <path d="M14 14l1 -1c.47 -.452 .995 -.675 1.52 -.67" />
+            <path d="M19 22.5a4.75 4.75 0 0 1 3.5 -3.5a4.75 4.75 0 0 1 -3.5 -3.5a4.75 4.75 0 0 1 -3.5 3.5a4.75 4.75 0 0 1 3.5 3.5" />
         </svg>
 
     )

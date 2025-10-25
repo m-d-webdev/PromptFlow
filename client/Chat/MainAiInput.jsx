@@ -2,7 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUp, AudioLines, LayoutGrid, Lock, Mic, Paperclip, Plus } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { BrandZoom, Photo, WorldSearch } from "../components/icons";
+import { BrandZoom, GenerateImageIcon, Photo, WorldSearch } from "../components/icons";
 import { UseAiChat } from "@/context/AiChatContext";
 import Loader from "../components/Loader";
 import { useUser } from "@/context/UserContext";
@@ -67,12 +67,12 @@ const ButtomUpload = ({ }) => {
                             <Lock className="ml-1 w-3 h-3 opacity-40 " />
                         </div>
                         <div className="flex duration-400 bg-background ease-out opacity-80 hover:opacity-100 gap-2 items-center p-1 py-2 w-full border border-foreground/5 hover:border-foreground/20 hover:bg-sidebar  cursor-pointer rounded-sm ">
-                            <Photo className="w-4 h-4" />
+                            <GenerateImageIcon className="w-4 h-4 stroke-foreground" />
                             <p className="tracking-tight font-medium">Create Image</p>
                             <Lock className="ml-1 w-3 h-3 opacity-40 " />
                         </div>
                         <div className="flex duration-400 bg-background ease-out opacity-80 hover:opacity-100 gap-2 items-center p-1 py-2 w-full border border-foreground/5 hover:border-foreground/20 hover:bg-sidebar  cursor-pointer rounded-sm ">
-                            <BrandZoom className="w-4 h-4" />
+                            <BrandZoom className="w-4 h-4 stroke-foreground" />
                             <p className="tracking-tight font-medium">Create Video</p>
                             <Lock className="ml-1 w-3 h-3 opacity-40 " />
                         </div>
@@ -222,7 +222,7 @@ const MainAiInput = () => {
                     <div className="flex gap-2 items-center">
                         <ButtomUpload />
                         <button onClick={() => setsearchOn(pv => !pv)} className="flex ml-1 opacity-70 p-1 relative border  border-foreground/5 rounded-full hover:border-foreground/20 cursor-pointer duration-200 items-center gap-1 ">
-                            <WorldSearch className={`w-5 ${searchOn ? "stroke-chart-1" : ""}  duration-150 h-5`} />
+                            <WorldSearch className={`w-5 ${searchOn ? "stroke-chart-1" : "stroke-foreground"}  duration-150 h-5`} />
                         </button>
                     </div>
                     <div className="flex gap-4 items-center">

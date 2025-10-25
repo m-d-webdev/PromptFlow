@@ -64,7 +64,7 @@ const ExtendingPopup = ({ onClose, data }) => {
                     <img src={data.user?.photoURL} className="w-[40] h-[40] rounded-full object-cover object-top" alt="" />
                 </div>
                 <div className="">
-                    <h1 className="font-bold text-muted-foreground tracking-tighter ">{data.user.displayName}</h1>
+                    <h1 className="font-bold text-muted-foreground tracking-tighter ">{data.user?.displayName}</h1>
                     <div className="flex pl-1 items-center">
 
                         {

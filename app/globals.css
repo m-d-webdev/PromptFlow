@@ -389,7 +389,7 @@ body {
 
 
 
-.assistant > pre {
+.assistant>pre {
   padding: 8px;
   border-radius: 5px;
   overflow-x: auto;
@@ -449,36 +449,33 @@ body {
 .spinner {
   width: 25px;
   height: 25px;
-  min-height: 25px;
-  display: grid;
-  border: 2.2px solid #0000;
   border-radius: 50%;
-  border-color: #dbdcef #0000;
-  animation: spinner-e04l1k 1s infinite linear;
-}
-
-.spinner::before,
-.spinner::after {
-  content: "";
-  grid-area: 1/1;
-  margin: 1.6px;
-  border: inherit;
-  border-radius: 50%;
-}
-
-.spinner::before {
-  border-color: var(--foreground) #0000;
-  animation: inherit;
-  animation-duration: 0.5s;
-  animation-direction: reverse;
+  display: inline-block;
+  border-top: 3px solid var(--foreground);
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
 
 .spinner::after {
-  margin: 6.4px;
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border-bottom: 3px solid #FF3D00;
+  border-left: 3px solid transparent;
 }
 
-@keyframes spinner-e04l1k {
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
   100% {
-    transform: rotate(1turn);
+    transform: rotate(360deg);
   }
 }
