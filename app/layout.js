@@ -1,11 +1,11 @@
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Header from "@/client/Header";
 import { PromptContextProvider } from "@/context/PromptContext";
 import { UserContext } from "@/context/UserContext";
 import NeedToLoginSign from "@/client/NeedToLoginSign";
 
-const geistSans = DM_Sans({
+const geistSans = Bricolage_Grotesque({
   // weight: ["100", "1000", "200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin-ext"],
 });
