@@ -1,13 +1,14 @@
 "use client";
 import Cookies from "js-cookie";
 import { createContext, useContext, useState } from "react"
+import { useUser } from "./UserContext";
 const AiChatContextP = createContext();
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export const AiChatContext = ({ children }) => {
     const [isLoading, setLoading] = useState(false);
     const [messages, setMessages] = useState([])
-
+    const { user } = useUser()
 
 
     const sendMessage = async (input) => {
@@ -29,7 +30,7 @@ export const AiChatContext = ({ children }) => {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${Cookies.get("access_token")}`
                 },
-                body: JSON.stringify({ messages: updatedMessages.map(m => m.role == "assistant" ? { role: "assistant", content: m.content.substring(0, 400) } : m).slice(updatedMessages.length - 5, updatedMessages.length) }),
+                body: JSON.stringify({ displayName: user.displayName, messages: updatedMessages.map(m => m.role == "assistant" ? { role: "assistant", content: m.content.substring(0, 400) } : m).slice(updatedMessages.length - 5, updatedMessages.length) }),
             });
 
             const reader = response.body.getReader();
